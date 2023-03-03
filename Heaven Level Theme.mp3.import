@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Heaven Level Theme.mp3-db6a0ab4969169bcf7bbfa93c43f35e7.mp3str"
+
+[deps]
+
+source_file="res://Heaven Level Theme.mp3"
+dest_files=[ "res://.import/Heaven Level Theme.mp3-db6a0ab4969169bcf7bbfa93c43f35e7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

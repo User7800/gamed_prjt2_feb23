@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Gnome Jumping.mp3-7de3193d4c28560b2d9ff0614d1d528b.mp3str"
+
+[deps]
+
+source_file="res://Gnome Jumping.mp3"
+dest_files=[ "res://.import/Gnome Jumping.mp3-7de3193d4c28560b2d9ff0614d1d528b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
