@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Saw.gd" type="Script" id=1]
+[ext_resource path="res://Saw.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 36.2215
+
+[sub_resource type="Animation" id=2]
+resource_name = "Saw Movement"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SawArea:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1.1, 1.7, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 100 ), Vector2( 0, 0 ), Vector2( 0, -100 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SawArea/Saw Sprite:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.9, 1.7, 2.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1000.0, 1.0, 1000.0 ]
+}
+
+[node name="Saw" type="Node2D"]
+position = Vector2( 510, 439 )
+script = ExtResource( 1 )
+
+[node name="SawArea" type="Area2D" parent="."]
+position = Vector2( 0, -97.5272 )
+
+[node name="Saw Sprite" type="Sprite" parent="SawArea"]
+rotation = 17.3689
+texture = ExtResource( 2 )
+
+[node name="SawCollison Shape" type="CollisionShape2D" parent="SawArea"]
+position = Vector2( -1, 1 )
+shape = SubResource( 1 )
+
+[node name="SawAnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Saw Movement"
+"anims/Saw Movement" = SubResource( 2 )
+
+[connection signal="body_entered" from="SawArea" to="." method="_on_SawArea_body_entered"]
