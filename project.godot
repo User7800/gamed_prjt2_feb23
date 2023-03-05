@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="GnomishSafetyTester"
-run/main_scene="res://MainScene.tscn"
+run/main_scene="res://ASSETS/Maps/Testing.tscn"
 config/icon="res://icon.png"
 
 [gui]
