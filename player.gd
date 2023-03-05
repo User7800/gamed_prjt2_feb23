@@ -13,7 +13,7 @@ func _physics_process(delta):
 		velocity.x = -SPEED
 		
 	if(velocity.y < TERM_GRAVITY):
-		velocity.y = (velocity.y + GRAV)
+		velocity.y += GRAV
 	
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = JUMP
@@ -25,5 +25,6 @@ func _physics_process(delta):
 	velocity.x = lerp(velocity.x, 0, 0.1)
 
 
-func _on_Fallzone_body_entered(body):
+
+func _on_Area2D_body_entered(body):
 	get_tree().change_scene("res://MainScene.tscn")
