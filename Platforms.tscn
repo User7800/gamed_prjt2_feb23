@@ -86,7 +86,6 @@ points = PoolVector2Array( 512, 192, 32, 192, 128, 0, 384, 32 )
 tile_set = SubResource( 1 )
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -131072, 0, 0, -65536, 1, 0, 0, 1, 0, 65536, 1, 0, 131072, 1, 0 )
 
 [node name="Tile Clouds" type="TileMap" parent="."]
 tile_set = SubResource( 5 )

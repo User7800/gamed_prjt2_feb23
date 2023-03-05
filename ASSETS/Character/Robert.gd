@@ -9,7 +9,7 @@ onready var state_machine = animation_tree.get("parameters/playback")
 # var b = "text"
 var velocity = Vector2(0, 0)
 const SPEED = 200
-const JUMP = -800
+const JUMP = -700
 const GRAV = 20
 const TERM_GRAVITY = 1000
 var last = 1
@@ -72,3 +72,7 @@ func _process(delta):
 	if(is_on_floor()):
 		ani_idle_LR()
 	# ani_walk_LR()
+
+
+func _on_Area2D_body_entered(body):
+	get_tree().change_scene("res://MainScene.tscn")
