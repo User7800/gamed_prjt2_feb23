@@ -1,0 +1,116 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://ASSETS/Art/Slides.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 41.75, 35.25 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 37.5, 10 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 138.124, 10 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "DEATH"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Safe"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "DEATH"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "Safe"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+
+[sub_resource type="AnimationNodeStateMachine" id=10]
+states/DEATH/node = SubResource( 7 )
+states/DEATH/position = Vector2( 350, 67 )
+states/Safe/node = SubResource( 8 )
+states/Safe/position = Vector2( 548, 67 )
+transitions = [ "DEATH", "Safe", SubResource( 9 ) ]
+start_node = "DEATH"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=11]
+
+[node name="SlideR" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( 1, 0 )
+mode = 1
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -137, 30 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -104, -8 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -65, -51 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -27.5, -97 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 99.8448, -4.32063 )
+rotation = 0.722566
+shape = SubResource( 12 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/DEATH = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+anims/Safe = SubResource( 6 )
+
+[node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer"]
+tree_root = SubResource( 10 )
+anim_player = NodePath("..")
+parameters/playback = SubResource( 11 )

@@ -80,7 +80,7 @@ func _process(delta):
 
 
 func _on_Area2D_body_entered(body):
-	get_tree().change_scene("res://MainScene.tscn")
+	position = $"../SpawnPoint".position
 
 
 func _on_SawArea_body_entered(body):
