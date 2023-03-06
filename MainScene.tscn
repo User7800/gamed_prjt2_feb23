@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://tiles_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/Character/Robert.tscn" type="PackedScene" id=2]
@@ -67,21 +67,7 @@ tracks/2/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=5]
-animation = "Saw Movement"
-
-[sub_resource type="AnimationNodeAnimation" id=6]
-animation = "stopSaw"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=7]
-
 [sub_resource type="AnimationNodeStateMachine" id=8]
-"states/Saw Movement/node" = SubResource( 5 )
-"states/Saw Movement/position" = Vector2( 791, 99 )
-states/stopSaw/node = SubResource( 6 )
-states/stopSaw/position = Vector2( 1082, 116 )
-transitions = [ "Saw Movement", "stopSaw", SubResource( 7 ) ]
-start_node = "Saw Movement"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=9]
 
@@ -147,7 +133,7 @@ parameters/playback = SubResource( 9 )
 position = Vector2( 289, -310 )
 
 [node name="SlideR" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1135, 505 )
+position = Vector2( 1085, 506 )
 scale = Vector2( 0.5, 0.5 )
 
 [connection signal="body_entered" from="fall_area" to="Robert" method="_on_Area2D_body_entered"]
