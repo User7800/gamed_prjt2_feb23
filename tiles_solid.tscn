@@ -439,4 +439,6 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 tile_set = SubResource( 1 )
 cell_size = Vector2( 18, 18 )
 cell_quadrant_size = 9
+collision_layer = 2
+collision_mask = 0
 format = 1

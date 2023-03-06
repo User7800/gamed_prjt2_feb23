@@ -163,6 +163,7 @@ extents = Vector2( 68, 110 )
 
 [node name="Robert" type="KinematicBody2D"]
 scale = Vector2( 0.5, 0.5 )
+collision_mask = 30
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
