@@ -410,7 +410,7 @@ points = PoolVector2Array( 0, 0, 18, 0, 18, 18, 0, 18 )
 } ]
 5/z_index = 0
 
-[node name="Lvl1_tilemap" type="TileMap"]
+[node name="solid" type="TileMap"]
 tile_set = SubResource( 1 )
 cell_size = Vector2( 18, 18 )
 cell_quadrant_size = 9
