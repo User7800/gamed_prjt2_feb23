@@ -53,5 +53,3 @@ shape = SubResource( 1 )
 [node name="SawAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Saw Movement"
 "anims/Saw Movement" = SubResource( 2 )
-
-[connection signal="body_entered" from="SawArea" to="." method="_on_SawArea_body_entered"]
