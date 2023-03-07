@@ -21,5 +21,5 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	moltenDeaths += 1
 	if (moltenDeaths <=1):
-		position = $"../SpawnPoint".position
+		get_tree().change_scene("res://Level2.tscn")
 	
