@@ -20,4 +20,4 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	BerryBushDeaths += 1
 	if (BerryBushDeaths <= 1):
-		position = $"../SpawnPoint".position
+		get_tree().change_scene("res://MainScene.tscn")
