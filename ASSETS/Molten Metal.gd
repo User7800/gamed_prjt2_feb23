@@ -1,5 +1,6 @@
 extends Area2D
 
+var moltenDeaths = 0
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -17,4 +18,7 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	pass # Replace with function body.
+	moltenDeaths += 1
+	if (moltenDeaths <=1):
+		position = $"../SpawnPoint".position
+	
