@@ -88,3 +88,7 @@ func _on_SawArea_body_entered(body):
 	if(sawDeaths <=1):
 		position = $"../SpawnPoint".position
 	#get_tree().change_scene("res://MainScene.tscn")
+
+
+func _on_fall_area_body_entered(body):
+	position = $"../SpawnPoint".position

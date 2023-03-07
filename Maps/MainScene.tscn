@@ -7,7 +7,7 @@
 [ext_resource path="res://SawAnimationPlayer.gd" type="Script" id=5]
 [ext_resource path="res://ASSETS/sawsAni.png" type="Texture" id=6]
 [ext_resource path="res://ASSETS/Playground level background.png" type="Texture" id=7]
-[ext_resource path="res://ASSETS/Molten Metal.tscn" type="PackedScene" id=8]
+[ext_resource path="res://ASSETS/Build/HoleOne.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2714.5, 105 )
@@ -139,8 +139,11 @@ position = Vector2( 289, -310 )
 position = Vector2( 1085, 506 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Area2D" parent="." instance=ExtResource( 8 )]
-position = Vector2( -135, 75 )
+[node name="HoleOne" parent="." instance=ExtResource( 8 )]
+position = Vector2( 287, 641 )
+
+[node name="HoleOne2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 566, 641 )
 
 [connection signal="body_entered" from="fall_area" to="Robert" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Saw/SawArea" to="Robert" method="_on_SawArea_body_entered"]
