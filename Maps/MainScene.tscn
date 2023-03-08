@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://tiles_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/Hazards/SlideR.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://ASSETS/Objects/BerryBush.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Maps/PBarL1.gd" type="Script" id=10]
 [ext_resource path="res://Maps/main1script.gd" type="Script" id=11]
+[ext_resource path="res://ASSETS/Audio/Level Music.mp3" type="AudioStream" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2714.5, 105 )
@@ -186,6 +187,11 @@ script = ExtResource( 10 )
 
 [node name="Door" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1944, 140 )
+
+[node name="Level 1 Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -6.992
+autoplay = true
 
 [connection signal="body_entered" from="fall_area" to="Robert" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Saw/SawArea" to="Robert" method="_on_SawArea_body_entered"]
