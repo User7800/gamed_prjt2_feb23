@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://tiles_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/Hazards/SlideR.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ASSETS/Character/Robert.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ASSETS/Objects/Saw.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ASSETS/Objects/SawAnimationPlayer.gd" type="Script" id=5]
+[ext_resource path="res://ASSETS/Build/Door.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ASSETS/Art/Playground level background.png" type="Texture" id=7]
 [ext_resource path="res://ASSETS/Hazards/HoleOne.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ASSETS/Objects/BerryBush.tscn" type="PackedScene" id=9]
@@ -182,6 +183,9 @@ step = 5.0
 rounded = true
 allow_greater = true
 script = ExtResource( 10 )
+
+[node name="Door" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1944, 140 )
 
 [connection signal="body_entered" from="fall_area" to="Robert" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Saw/SawArea" to="Robert" method="_on_SawArea_body_entered"]

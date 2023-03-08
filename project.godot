@@ -12,6 +12,7 @@ config_version=4
 
 config/name="GnomishSafetyTester"
 run/main_scene="res://Maps/MainScene.tscn"
+config/icon="res://icon.png"
 
 [gui]
 
