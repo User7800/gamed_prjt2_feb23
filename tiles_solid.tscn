@@ -1,7 +1,7 @@
 [gd_scene load_steps=39 format=2]
 
-[ext_resource path="res://ASSETS/lvl1_tiles_packed.png" type="Texture" id=1]
-[ext_resource path="res://ASSETS/IndustrialTile_03.png" type="Texture" id=2]
+[ext_resource path="res://ASSETS/Art/lvl1_tiles_packed.png" type="Texture" id=1]
+[ext_resource path="res://ASSETS/Art/IndustrialTile_03.png" type="Texture" id=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 18, 0, 18, 18, 0, 18 )

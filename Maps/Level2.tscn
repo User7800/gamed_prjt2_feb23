@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://ASSETS/Factory Level Background.png" type="Texture" id=1]
+[ext_resource path="res://ASSETS/Art/Factory Level Background.png" type="Texture" id=1]
 [ext_resource path="res://tiles_solid.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ASSETS/Character/Robert.tscn" type="PackedScene" id=3]
 

@@ -1,12 +1,11 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://tiles_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/Build/SlideR.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ASSETS/Character/Robert.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Obstacles.tscn" type="PackedScene" id=4]
 [ext_resource path="res://SawAnimationPlayer.gd" type="Script" id=5]
-[ext_resource path="res://ASSETS/sawsAni.png" type="Texture" id=6]
-[ext_resource path="res://ASSETS/Playground level background.png" type="Texture" id=7]
+[ext_resource path="res://ASSETS/Art/Playground level background.png" type="Texture" id=7]
 [ext_resource path="res://ASSETS/Build/HoleOne.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ASSETS/Objects/BerryBush.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Maps/PBarL1.gd" type="Script" id=10]
@@ -140,9 +139,6 @@ position = Vector2( 439, 135 )
 
 [node name="Saw Sprite" parent="Saw/SawArea" index="0"]
 position = Vector2( 188.727, -26.949 )
-texture = ExtResource( 6 )
-hframes = 2
-vframes = 2
 
 [node name="SawCollison Shape" parent="Saw/SawArea" index="1"]
 position = Vector2( 187.727, -25.949 )
