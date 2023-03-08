@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-
+onready var daddy = get_parent()
 onready var animation_tree = $AnimationTree
 onready var animate = $AnimationPlayer
 #onready var ani_saw = 
@@ -87,6 +87,7 @@ func _on_SawArea_body_entered(body):
 	sawDeaths += 1
 	if(sawDeaths <=1):
 		position = $"../SpawnPoint".position
+		daddy.sawDeath = 1
 	#get_tree().change_scene("res://MainScene.tscn")
 
 

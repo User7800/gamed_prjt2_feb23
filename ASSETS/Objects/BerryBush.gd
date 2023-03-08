@@ -1,14 +1,14 @@
 extends Node2D
 
-onready var slide = $AnimationPlayer
+
+onready var bush = $Sprite
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var kount = 0
-
+var bewl = true
+var bushPoints = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	pass # Replace with function body.
 
 
@@ -18,12 +18,9 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	kount += 1
-	print("             SLIDEKOUNT = ", kount)
-	if(kount < 2):
+	if(bewl):
+		bewl = false
 		body.position = $"../SpawnPoint".position
-		slide.play("Safe")
-	if (kount >= 2):
+		bush.visible = false
+		bushPoints = 1
 		
-		print("EEEEEEEEEEEEEEENTERRRRRRRRR THE SLIIIIIIIIIIDEEEEEEEEEEEE")
-	#pass # Replace with function body.
