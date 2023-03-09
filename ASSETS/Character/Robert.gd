@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-onready var jumpSound = $JumpSound
 
 onready var daddy = get_parent()
 onready var animation_tree = $AnimationTree
@@ -38,14 +37,9 @@ func _physics_process(delta):
 		velocity.y = JUMP
 		animate.play("Jump")
 		state_machine.travel("Jump")
-<<<<<<< Updated upstream
 		$Jump.play()
 		
 		
-=======
-		jumpSound.play()
-		#$Jump.play()
->>>>>>> Stashed changes
 	
 	print("Y=", velocity.y, " X=", velocity.x)
 	#ani_idle_LR()

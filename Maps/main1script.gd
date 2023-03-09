@@ -1,6 +1,5 @@
 extends Node2D
 
-
 onready var bushPoint = get_node("BerryBush")
 onready var slidePoint = get_node("SlideR")
 onready var holePoint = get_node("HoleOne")
