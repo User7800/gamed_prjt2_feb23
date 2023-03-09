@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-
+#onready var JumpSound = $Jump
 onready var daddy = get_parent()
 onready var animation_tree = $AnimationTree
 onready var animate = $AnimationPlayer
