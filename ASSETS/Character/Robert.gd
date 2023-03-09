@@ -37,6 +37,8 @@ func _physics_process(delta):
 		velocity.y = JUMP
 		animate.play("Jump")
 		state_machine.travel("Jump")
+		$Jump.play()
+		
 		
 	
 	print("Y=", velocity.y, " X=", velocity.x)
