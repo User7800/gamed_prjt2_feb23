@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ASSETS/Art/Playground level background.png" type="Texture" id=2]
+
+[node name="PauseMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color( 1, 0.223529, 0.988235, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+flip_v = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 573.0
+margin_top = 288.0
+margin_right = 706.0
+margin_bottom = 432.0
+rect_pivot_offset = Vector2( 66.5, 55 )
+custom_constants/separation = 28
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_right = 133.0
+margin_bottom = 48.0
+rect_pivot_offset = Vector2( 66.5, 7 )
+text = "Gnome Safety Tester
+
+"
+align = 1
+valign = 1
+
+[node name="Resume" type="Button" parent="CenterContainer/VBoxContainer"]
+self_modulate = Color( 0.333333, 1, 0.388235, 1 )
+margin_top = 76.0
+margin_right = 133.0
+margin_bottom = 96.0
+rect_pivot_offset = Vector2( 66, 10 )
+text = "Gnome On!"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+self_modulate = Color( 1, 0, 0, 1 )
+margin_top = 124.0
+margin_right = 133.0
+margin_bottom = 144.0
+rect_pivot_offset = Vector2( 66, 10 )
+text = "Gnome Off..."
