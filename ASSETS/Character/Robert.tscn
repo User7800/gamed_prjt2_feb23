@@ -49,6 +49,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 6 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("JumpSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -192,5 +204,9 @@ position = Vector2( -2, -3 )
 scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 22 )
 
+<<<<<<< Updated upstream
 [node name="Jump" type="AudioStreamPlayer" parent="."]
+=======
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+>>>>>>> Stashed changes
 stream = ExtResource( 3 )
