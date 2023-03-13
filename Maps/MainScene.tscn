@@ -105,14 +105,14 @@ script = ExtResource( 11 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 397, 66 )
-scale = Vector2( 7.88715, 4.2284 )
+position = Vector2( 579.75, 66 )
+scale = Vector2( 8.5217, 4.2284 )
 texture = ExtResource( 7 )
 
 [node name="PlaygroundLevelBackground" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 566.157, -878.5 )
+position = Vector2( 789.075, -878.499 )
 rotation = -3.14159
-scale = Vector2( 5.96514, 1.58951 )
+scale = Vector2( 6.73916, 1.58951 )
 texture = ExtResource( 7 )
 
 [node name="lvl1_tilemap" parent="." instance=ExtResource( 1 )]
@@ -182,8 +182,6 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
 custom_styles/fg = SubResource( 10 )
 custom_styles/bg = SubResource( 11 )
-step = 1.0
-rounded = true
 allow_greater = true
 script = ExtResource( 10 )
 

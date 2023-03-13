@@ -12,11 +12,11 @@ var H2flag = false
 var H2flag2 = false
 ##var sawAni = 0
 var sawDeath = 0
-
+var floter = float(2.25)
 onready var bar = $PBar
 var barValue = 0
-var HazardCount = 6
-var BAR_PERCENT = 100/HazardCount
+var HazardCount = 6.0
+var BAR_PERCENT = float(100.0/HazardCount)
 #bar.value = 0
 # Declare member variables here. Examples:
 # var a = 2
