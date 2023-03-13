@@ -5,7 +5,7 @@ extends Node2D
 # var a = 2
 # var b = "text"
 var acid = true
-
+var sand = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -19,5 +19,7 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	if( acid ):
 		body.position = $"../SpawnPoint".position
+		sand +=1
 		acid = false
 		$AcidPlayer.play("Sand")
+		

@@ -4,6 +4,7 @@ onready var bushPoint = get_node("BerryBush")
 onready var slidePoint = get_node("SlideR")
 onready var holePoint = get_node("HoleOne")
 onready var holePoint2 = get_node("HoleOne2")
+onready var sandBox = get_node("SandBox")
 ##onready var sawAniChange = get_node("Saw")
 var Hflag = false
 var Hflag2 = false
@@ -14,7 +15,8 @@ var sawDeath = 0
 
 onready var bar = $PBar
 var barValue = 0
-var BAR_PERCENT = 20
+var HazardCount = 6
+var BAR_PERCENT = 100/HazardCount
 #bar.value = 0
 # Declare member variables here. Examples:
 # var a = 2
@@ -55,3 +57,6 @@ func _process(delta):
 	if(sawDeath == 1):
 		bar.value += BAR_PERCENT
 		sawDeath += 1
+	if(sandBox.sand == 1):
+		bar.value += BAR_PERCENT
+		sandBox.sand += 1

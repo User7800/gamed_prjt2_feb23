@@ -142,10 +142,10 @@ limit_smoothed = true
 position = Vector2( 439, 135 )
 
 [node name="Saw Sprite" parent="Saw/SawArea" index="0"]
-position = Vector2( 188.727, -26.949 )
+position = Vector2( 1305.73, -32.949 )
 
 [node name="SawCollison Shape" parent="Saw/SawArea" index="1"]
-position = Vector2( 187.727, -25.949 )
+position = Vector2( 1304.73, -31.949 )
 
 [node name="SawAnimationPlayer" parent="Saw" index="1"]
 anims/RESET = SubResource( 3 )
@@ -182,7 +182,7 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
 custom_styles/fg = SubResource( 10 )
 custom_styles/bg = SubResource( 11 )
-step = 5.0
+step = 1.0
 rounded = true
 allow_greater = true
 script = ExtResource( 10 )
