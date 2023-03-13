@@ -1,7 +1,10 @@
 extends KinematicBody2D
 
+#onready var JumpSound = $Jump
+onready var daddy = get_parent()
 onready var animation_tree = $AnimationTree
 onready var animate = $AnimationPlayer
+#onready var ani_saw = 
 onready var state_machine = animation_tree.get("parameters/playback")
 
 # Declare member variables here. Examples:
@@ -13,6 +16,8 @@ const JUMP = -700
 const GRAV = 20
 const TERM_GRAVITY = 1000
 var last = 1
+var sawDeaths = 0
+
 
 func _physics_process(delta):
 	# state_machine.travel("IdleRight")
@@ -32,6 +37,9 @@ func _physics_process(delta):
 		velocity.y = JUMP
 		animate.play("Jump")
 		state_machine.travel("Jump")
+		$Jump.play()
+		
+		
 	
 	print("Y=", velocity.y, " X=", velocity.x)
 	#ani_idle_LR()
@@ -79,4 +87,12 @@ func _on_Area2D_body_entered(body):
 
 
 func _on_SawArea_body_entered(body):
+	sawDeaths += 1
+	if(sawDeaths <=1):
+		position = $"../SpawnPoint".position
+		daddy.sawDeath = 1
+	#get_tree().change_scene("res://MainScene.tscn")
+
+
+func _on_fall_area_body_entered(body):
 	position = $"../SpawnPoint".position

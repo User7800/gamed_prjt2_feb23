@@ -1,9 +1,11 @@
 extends Area2D
 
 
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+var moltenDeaths = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,4 +19,7 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	pass # Replace with function body.
+	moltenDeaths += 1
+	if (moltenDeaths <=1):
+		get_tree().change_scene("res://Level2.tscn")
+	
