@@ -8,7 +8,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$paper.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,6 +17,7 @@ func _ready():
 
 
 func _on_Start_pressed():
+	#$GiggleStart.play()
 	get_tree().change_scene("res://Maps/MainScene.tscn")
 
 
@@ -26,3 +27,15 @@ func _on_Options_pressed():
 
 func _on_Exit_pressed():
 	get_tree().quit()
+
+
+func _on_Start_mouse_entered():
+	$GiggleStart.play()
+	$ButtonClickSound.play()
+
+func _on_Exit_mouse_entered():
+	$ButtonClickSound.play()
+
+
+func _on_Options_mouse_entered():
+	$ButtonClickSound.play()

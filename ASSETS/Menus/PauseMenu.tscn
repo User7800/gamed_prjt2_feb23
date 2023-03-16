@@ -1,59 +1,157 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://ASSETS/Menus/PauseMenu.gd" type="Script" id=1]
 [ext_resource path="res://ASSETS/Art/Playground level background.png" type="Texture" id=2]
+[ext_resource path="res://ASSETS/Fonts/BlockyFont.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://ASSETS/Audio/MenuNoises/ClickCool.wav" type="AudioStream" id=4]
+[ext_resource path="res://ASSETS/Audio/MenuNoises/ToggleClick.wav" type="AudioStream" id=5]
+[ext_resource path="res://ASSETS/Audio/MenuNoises/paper1.mp3" type="AudioStream" id=6]
+
+[sub_resource type="DynamicFont" id=2]
+outline_size = 1
+outline_color = Color( 0.129412, 0.27451, 0.65098, 1 )
+extra_spacing_top = 6
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 1
+outline_color = Color( 0, 0.486275, 0.388235, 1 )
+extra_spacing_top = 4
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 55
+outline_size = 3
+outline_color = Color( 0.34902, 0.784314, 0.321569, 1 )
+font_data = ExtResource( 3 )
 
 [node name="PauseMenu" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-self_modulate = Color( 1, 0.223529, 0.988235, 1 )
+self_modulate = Color( 1, 0.223529, 0.988235, 0.729412 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )
 expand = true
 flip_v = true
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 573.0
-margin_top = 288.0
-margin_right = 706.0
-margin_bottom = 432.0
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/CenterContainer"]
+margin_left = 555.0
+margin_top = 253.0
+margin_right = 725.0
+margin_bottom = 466.0
 rect_pivot_offset = Vector2( 66.5, 55 )
 custom_constants/separation = 28
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-self_modulate = Color( 0, 0, 0, 1 )
-margin_right = 133.0
-margin_bottom = 48.0
-rect_pivot_offset = Vector2( 66.5, 7 )
-text = "Gnome Safety Tester
-
-"
-align = 1
-valign = 1
-
-[node name="Resume" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="TextureRect/CenterContainer/VBoxContainer"]
 self_modulate = Color( 0.333333, 1, 0.388235, 1 )
-margin_top = 76.0
-margin_right = 133.0
-margin_bottom = 96.0
+margin_right = 170.0
+margin_bottom = 34.0
 rect_pivot_offset = Vector2( 66, 10 )
+mouse_filter = 1
+custom_fonts/font = SubResource( 2 )
 text = "Gnome On!"
 
-[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Resume2" type="Button" parent="TextureRect/CenterContainer/VBoxContainer"]
+self_modulate = Color( 0.870588, 1, 0.129412, 1 )
+margin_top = 62.0
+margin_right = 170.0
+margin_bottom = 96.0
+rect_pivot_offset = Vector2( 66, 10 )
+hint_tooltip = "This will send you back to the Main Screen, where you can edit Options"
+mouse_filter = 1
+custom_fonts/font = SubResource( 2 )
+text = "Gnome Home"
+
+[node name="Quit" type="Button" parent="TextureRect/CenterContainer/VBoxContainer"]
 self_modulate = Color( 1, 0, 0, 1 )
 margin_top = 124.0
-margin_right = 133.0
-margin_bottom = 144.0
+margin_right = 170.0
+margin_bottom = 156.0
 rect_pivot_offset = Vector2( 66, 10 )
+mouse_filter = 1
+custom_fonts/font = SubResource( 3 )
 text = "Gnome Off..."
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[node name="CheckBox" type="CheckBox" parent="TextureRect/CenterContainer/VBoxContainer"]
+margin_top = 184.0
+margin_right = 170.0
+margin_bottom = 213.0
+mouse_filter = 1
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover_pressed = Color( 1, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_constants/hseparation = 8
+custom_fonts/font = SubResource( 5 )
+text = "   FULLSCREEN"
+
+[node name="CenterContainer2" type="CenterContainer" parent="TextureRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -432.0
+margin_right = 426.0
+margin_bottom = 226.0
+
+[node name="GST" type="Label" parent="TextureRect/CenterContainer2"]
+margin_left = 3.0
+margin_top = 35.0
+margin_right = 854.0
+margin_bottom = 190.0
+rect_pivot_offset = Vector2( 275, 35 )
+hint_tooltip = "Try To Die!"
+mouse_filter = 1
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "
+GNOME SAFETY TESTER"
+
+[node name="ButtonClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="toggleClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="paper" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 104.0
+margin_top = 241.0
+margin_right = 540.0
+margin_bottom = 413.0
+text = "Add to factory: 
+	Lasers covering hole in floor which are removed after dying to them 
+	but still leave the hole in the floor which is dyable
+	Add Sawblade, one moving, one static spinning.
+	Add Crusher component line in Star Wars
+	Add more VERTICALITY
+	Add 2 or so pits of molten metal to be replaced
+	 with either no molten metal, or another \"gotcha\" Hazard req'ing
+	double dipping like the laser hole
+	"
+
+[connection signal="mouse_entered" from="TextureRect/CenterContainer/VBoxContainer/Resume" to="." method="_on_Resume_mouse_entered"]
+[connection signal="pressed" from="TextureRect/CenterContainer/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="mouse_entered" from="TextureRect/CenterContainer/VBoxContainer/Resume2" to="." method="_on_Resume_mouse_entered"]
+[connection signal="pressed" from="TextureRect/CenterContainer/VBoxContainer/Resume2" to="." method="_on_Home_pressed"]
+[connection signal="mouse_entered" from="TextureRect/CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_mouse_entered"]
+[connection signal="pressed" from="TextureRect/CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="mouse_entered" from="TextureRect/CenterContainer/VBoxContainer/CheckBox" to="." method="_on_CheckBox_mouse_entered"]
+[connection signal="toggled" from="TextureRect/CenterContainer/VBoxContainer/CheckBox" to="." method="_on_CheckBox_toggled"]

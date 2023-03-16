@@ -61,3 +61,6 @@ func _process(delta):
 	if(sandBox.sand == 1):
 		bar.value += BAR_PERCENT
 		sandBox.sand += 1
+	#if(Input.is_action_just_pressed("pause_menu")):
+		#print("Paused")
+		
