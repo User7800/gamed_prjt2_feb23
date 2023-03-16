@@ -112,16 +112,16 @@ font_data = ExtResource( 19 )
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 11 )
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="BlueBackground" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BlueBackground"]
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Sprite" type="Sprite" parent="BlueBackground/ParallaxLayer"]
 position = Vector2( 579.75, 66 )
 scale = Vector2( 8.5217, 4.2284 )
 texture = ExtResource( 7 )
 
-[node name="PlaygroundLevelBackground" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+[node name="PlaygroundLevelBackground" type="Sprite" parent="BlueBackground/ParallaxLayer"]
 position = Vector2( 789.075, -878.499 )
 rotation = -3.14159
 scale = Vector2( 6.73916, 1.58951 )

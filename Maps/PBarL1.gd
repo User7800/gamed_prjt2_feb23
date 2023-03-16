@@ -5,12 +5,12 @@ extends ProgressBar
 # var a = 2
 # var b = "text"
 
-onready var bumpAmount = 20
-var hazards = 66
-var percent = 100/hazards
+#onready var bumpAmount = 20
+var hazardAmount = 5
+var percentMove = 100/hazardAmount
 
 func bumper():
-	value += percent
+	value += percentMove
 
 
 

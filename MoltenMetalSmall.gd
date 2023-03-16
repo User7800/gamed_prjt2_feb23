@@ -4,7 +4,7 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var bewl = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,4 +17,8 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	get_tree().change_scene("res://Maps/Factory.tscn")
+	if(bewl):
+		body.position = $"../../SpawnPoint".position
+		bewl = false
+		$Area2D/CollisionShape2D.disabled = true
+		$Sprite.visible = false
