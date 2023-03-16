@@ -32,3 +32,36 @@ func _on_CheckBox_mouse_entered():
 
 func _on_Button_mouse_entered():
 	$ButtonClickSound.play()
+
+
+func _on_Lvl1_mouse_entered():
+	$ButtonClickSound.play()
+
+
+func _on_Lvl2_mouse_entered():
+	$ButtonClickSound.play()
+
+
+func _on_Lvl3_mouse_entered():
+	$ButtonClickSound.play()
+
+
+func _on_Lvl4_mouse_entered():
+	$ButtonClickSound.play()
+
+
+func _on_Lvl1_pressed():
+	get_tree().change_scene("res://Maps/MainScene.tscn")
+
+func _on_Lvl2_pressed():
+	get_tree().change_scene("res://Maps/Factory.tscn")
+
+
+func _on_Lvl3_pressed():
+	get_tree().change_scene("res://Maps/Level3.tscn")
+
+
+func _on_Lvl4_pressed():
+	pass # Replace with function body.
+
+

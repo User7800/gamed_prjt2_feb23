@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://ASSETS/Art/Playground level background.png" type="Texture" id=1]
 [ext_resource path="res://ASSETS/Menus/OptionsMenu.gd" type="Script" id=2]
@@ -6,11 +6,36 @@
 [ext_resource path="res://ASSETS/Fonts/BlockyFont.TTF" type="DynamicFontData" id=4]
 [ext_resource path="res://ASSETS/Audio/MenuNoises/paper1.mp3" type="AudioStream" id=5]
 [ext_resource path="res://ASSETS/Audio/MenuNoises/ToggleClick.wav" type="AudioStream" id=6]
+[ext_resource path="res://ASSETS/Art/crab.png" type="Texture" id=7]
+[ext_resource path="res://ASSETS/Art/gnome.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=2]
+extra_spacing_top = 8
+extra_spacing_bottom = 4
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 4
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 13
+extra_spacing_top = 4
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 15
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 55
+outline_size = 3
+outline_color = Color( 0.34902, 0.784314, 0.321569, 1 )
 font_data = ExtResource( 4 )
 
 [node name="OptionsMenu" type="Control"]
@@ -31,28 +56,81 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/CenterContainer"]
-margin_left = 527.0
-margin_top = 324.0
-margin_right = 752.0
-margin_bottom = 396.0
+margin_left = 511.0
+margin_top = 288.0
+margin_right = 769.0
+margin_bottom = 432.0
 custom_constants/separation = 23
 
-[node name="Button" type="Button" parent="TextureRect/CenterContainer/VBoxContainer"]
-margin_right = 225.0
-margin_bottom = 20.0
+[node name="Return" type="Button" parent="TextureRect/CenterContainer/VBoxContainer"]
+margin_right = 258.0
+margin_bottom = 40.0
 rect_pivot_offset = Vector2( -1022, -112 )
-text = "Not Done, return to TITLE SCREEN"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+custom_colors/font_color_focus = Color( 0.396078, 1, 0.294118, 1 )
+custom_fonts/font = SubResource( 2 )
+text = " Return to Main Menu "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/CenterContainer/VBoxContainer"]
+margin_top = 63.0
+margin_right = 258.0
+margin_bottom = 92.0
+
+[node name="Label" type="Label" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_top = 4.0
+margin_right = 117.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 3 )
+text = "LEVEL SELECT:"
+
+[node name="Lvl1" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 121.0
+margin_right = 150.0
+margin_bottom = 29.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 4 )
+text = " 1 "
+
+[node name="Lvl2" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 154.0
+margin_right = 186.0
+margin_bottom = 29.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 4 )
+text = " 2 "
+
+[node name="Lvl3" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 190.0
+margin_right = 222.0
+margin_bottom = 29.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 4 )
+text = " 3 "
+
+[node name="Lvl4" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 226.0
+margin_right = 258.0
+margin_bottom = 29.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 4 )
+text = " 4 "
 
 [node name="CheckBox" type="CheckBox" parent="TextureRect/CenterContainer/VBoxContainer"]
-margin_top = 43.0
-margin_right = 225.0
-margin_bottom = 72.0
+margin_top = 115.0
+margin_right = 258.0
+margin_bottom = 144.0
 mouse_filter = 1
+mouse_default_cursor_shape = 2
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 1, 0, 0, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 custom_constants/hseparation = 8
 custom_fonts/font = SubResource( 1 )
 text = "   FULLSCREEN"
@@ -66,7 +144,75 @@ stream = ExtResource( 6 )
 [node name="paper" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 
-[connection signal="mouse_entered" from="TextureRect/CenterContainer/VBoxContainer/Button" to="." method="_on_Button_mouse_entered"]
-[connection signal="pressed" from="TextureRect/CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[node name="CrabParticles" type="CPUParticles2D" parent="."]
+position = Vector2( 638, -43 )
+amount = 10
+lifetime = 5.0
+preprocess = 10.0
+randomness = 0.11
+texture = ExtResource( 7 )
+emission_shape = 2
+emission_rect_extents = Vector2( 650, 10 )
+spread = 78.0
+radial_accel = 15.79
+radial_accel_random = 0.75
+tangential_accel = 8.78
+tangential_accel_random = 0.17
+angle = 30.0
+angle_random = 1.0
+scale_amount = 0.88
+
+[node name="RobParticles" type="CPUParticles2D" parent="."]
+position = Vector2( 638, -43 )
+amount = 10
+lifetime = 5.0
+preprocess = 10.0
+randomness = 0.11
+texture = ExtResource( 8 )
+emission_shape = 2
+emission_rect_extents = Vector2( 650, 10 )
+spread = 177.47
+gravity = Vector2( 0, 50 )
+angular_velocity = 12.63
+angular_velocity_random = 1.0
+radial_accel = 15.79
+radial_accel_random = 0.75
+tangential_accel = 8.78
+tangential_accel_random = 0.17
+angle = 30.0
+angle_random = 1.0
+scale_amount = 0.05
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -432.0
+margin_right = 426.0
+margin_bottom = 226.0
+
+[node name="GST" type="Label" parent="CenterContainer2"]
+margin_left = 3.0
+margin_top = 35.0
+margin_right = 854.0
+margin_bottom = 190.0
+rect_pivot_offset = Vector2( 275, 35 )
+hint_tooltip = "Try To Die!"
+mouse_filter = 1
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "
+GNOME SAFETY TESTER"
+
+[connection signal="mouse_entered" from="TextureRect/CenterContainer/VBoxContainer/Return" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="TextureRect/CenterContainer/VBoxContainer/Return" to="." method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="TextureRect/CenterContainer/VBoxContainer/HBoxContainer/Lvl1" to="." method="_on_Lvl1_mouse_entered"]
+[connection signal="pressed" from="TextureRect/CenterContainer/VBoxContainer/HBoxContainer/Lvl1" to="." method="_on_Lvl1_pressed"]
+[connection signal="mouse_entered" from="TextureRect/CenterContainer/VBoxContainer/HBoxContainer/Lvl2" to="." method="_on_Lvl2_mouse_entered"]
+[connection signal="pressed" from="TextureRect/CenterContainer/VBoxContainer/HBoxContainer/Lvl2" to="." method="_on_Lvl2_pressed"]
+[connection signal="mouse_entered" from="TextureRect/CenterContainer/VBoxContainer/HBoxContainer/Lvl3" to="." method="_on_Lvl3_mouse_entered"]
+[connection signal="pressed" from="TextureRect/CenterContainer/VBoxContainer/HBoxContainer/Lvl3" to="." method="_on_Lvl3_pressed"]
+[connection signal="mouse_entered" from="TextureRect/CenterContainer/VBoxContainer/HBoxContainer/Lvl4" to="." method="_on_Lvl4_mouse_entered"]
+[connection signal="pressed" from="TextureRect/CenterContainer/VBoxContainer/HBoxContainer/Lvl4" to="." method="_on_Lvl4_pressed"]
 [connection signal="mouse_entered" from="TextureRect/CenterContainer/VBoxContainer/CheckBox" to="." method="_on_CheckBox_mouse_entered"]
 [connection signal="toggled" from="TextureRect/CenterContainer/VBoxContainer/CheckBox" to="." method="_on_CheckBox_toggled"]
