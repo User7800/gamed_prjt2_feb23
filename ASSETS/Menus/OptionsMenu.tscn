@@ -9,6 +9,12 @@
 [ext_resource path="res://ASSETS/Art/crab.png" type="Texture" id=7]
 [ext_resource path="res://ASSETS/Art/gnome.png" type="Texture" id=8]
 
+[sub_resource type="DynamicFont" id=5]
+size = 55
+outline_size = 3
+outline_color = Color( 0.34902, 0.784314, 0.321569, 1 )
+font_data = ExtResource( 4 )
+
 [sub_resource type="DynamicFont" id=2]
 extra_spacing_top = 8
 extra_spacing_bottom = 4
@@ -32,12 +38,6 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=5]
-size = 55
-outline_size = 3
-outline_color = Color( 0.34902, 0.784314, 0.321569, 1 )
-font_data = ExtResource( 4 )
-
 [node name="OptionsMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -50,6 +50,27 @@ anchor_bottom = 1.0
 texture = ExtResource( 1 )
 expand = true
 flip_v = true
+
+[node name="CenterContainer2" type="CenterContainer" parent="TextureRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -432.0
+margin_right = 426.0
+margin_bottom = 226.0
+
+[node name="GST" type="Label" parent="TextureRect/CenterContainer2"]
+margin_left = 3.0
+margin_top = 35.0
+margin_right = 854.0
+margin_bottom = 190.0
+rect_pivot_offset = Vector2( 275, 35 )
+hint_tooltip = "Try To Die!"
+mouse_filter = 1
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "
+GNOME SAFETY TESTER"
 
 [node name="CenterContainer" type="CenterContainer" parent="TextureRect"]
 anchor_right = 1.0
@@ -145,6 +166,7 @@ stream = ExtResource( 6 )
 stream = ExtResource( 5 )
 
 [node name="CrabParticles" type="CPUParticles2D" parent="."]
+visible = false
 position = Vector2( 638, -43 )
 amount = 10
 lifetime = 5.0
@@ -163,6 +185,7 @@ angle_random = 1.0
 scale_amount = 0.88
 
 [node name="RobParticles" type="CPUParticles2D" parent="."]
+visible = false
 position = Vector2( 638, -43 )
 amount = 10
 lifetime = 5.0
@@ -182,27 +205,6 @@ tangential_accel_random = 0.17
 angle = 30.0
 angle_random = 1.0
 scale_amount = 0.05
-
-[node name="CenterContainer2" type="CenterContainer" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -432.0
-margin_right = 426.0
-margin_bottom = 226.0
-
-[node name="GST" type="Label" parent="CenterContainer2"]
-margin_left = 3.0
-margin_top = 35.0
-margin_right = 854.0
-margin_bottom = 190.0
-rect_pivot_offset = Vector2( 275, 35 )
-hint_tooltip = "Try To Die!"
-mouse_filter = 1
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 5 )
-text = "
-GNOME SAFETY TESTER"
 
 [connection signal="mouse_entered" from="TextureRect/CenterContainer/VBoxContainer/Return" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="TextureRect/CenterContainer/VBoxContainer/Return" to="." method="_on_Button_pressed"]

@@ -18,7 +18,8 @@ func _ready():
 
 func _on_Button_pressed():
 	$paper.play()
-	get_tree().change_scene("res://ASSETS/Menus/TitleScreen.tscn")
+	#get_tree().change_scene("res://ASSETS/Menus/TitleScreen.tscn")
+	$"../OptionsMenu".visible = false
 
 
 func _on_CheckBox_toggled(button_pressed):

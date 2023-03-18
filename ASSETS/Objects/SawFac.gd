@@ -1,15 +1,15 @@
 extends Node2D
 
-onready var Crab = $Sprite
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+onready var ani_saw = $SawAnimationPlayer
 var bewl = true
-var crabPoints = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,9 +17,9 @@ func _ready():
 #	pass
 
 
-func _on_Area2D_body_entered(body):
+func _on_SawArea_body_entered(body):
 	if(bewl):
 		bewl = false
 		body.position = $"../../SpawnPoint".position
-		Crab.visible = false
-		crabPoints = 1
+		ani_saw.play("Halt")
+		

@@ -8,7 +8,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$paper.play()
+	#$paper.play()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,7 +23,8 @@ func _on_Start_pressed():
 
 
 func _on_Options_pressed():
-	get_tree().change_scene("res://ASSETS/Menus/OptionsMenu.tscn")
+	#get_tree().change_scene("res://ASSETS/Menus/OptionsMenu.tscn")
+	$OptionsMenu/OptionsMenu.visible = true
 
 
 func _on_Exit_pressed():

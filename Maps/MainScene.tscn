@@ -153,8 +153,12 @@ limit_smoothed = true
 [node name="Saw" parent="." instance=ExtResource( 4 )]
 position = Vector2( 439, 135 )
 
+[node name="SawArea" parent="Saw" index="0"]
+position = Vector2( 0, -8.23851 )
+
 [node name="Saw Sprite" parent="Saw/SawArea" index="0"]
 position = Vector2( 1305.73, -32.949 )
+rotation = 34.9164
 
 [node name="SawCollison Shape" parent="Saw/SawArea" index="1"]
 position = Vector2( 1304.73, -31.949 )

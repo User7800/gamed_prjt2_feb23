@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://ASSETS/TileSets/IndustrialTileSet/industrial2.png" type="Texture" id=1]
+[ext_resource path="res://ASSETS/Hazards/Laser.gd" type="Script" id=2]
+[ext_resource path="res://ASSETS/Art/crab.png" type="Texture" id=3]
+
+[sub_resource type="TileSet" id=1]
+0/name = "industrial2.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 176, 256, 5, 5 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 2.5, 105 )
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.00990099, 0.975248 )
+colors = PoolColorArray( 0, 0, 0, 1, 1, 0.863281, 0.863281, 1, 1, 0.164063, 0.164063, 1 )
+
+[node name="Laser" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 5, 5 )
+format = 1
+tile_data = PoolIntArray( -2818048, 0, 0, -65536, 0, 0 )
+
+[node name="LM" type="Polygon2D" parent="."]
+position = Vector2( 2, 13.2673 )
+scale = Vector2( 1, 2.0297 )
+color = Color( 1, 0, 0.117647, 0.901961 )
+polygon = PoolVector2Array( -1, -9, -1, -110, 2, -110, 2, -9 )
+
+[node name="LL" type="Polygon2D" parent="."]
+position = Vector2( -1, 13.2673 )
+scale = Vector2( 1, 2.0297 )
+color = Color( 1, 0.454902, 0.454902, 0.537255 )
+polygon = PoolVector2Array( 1, -9, 1, -110, 2, -110, 2, -9, 2, -9, 1, -9 )
+
+[node name="LR" type="Polygon2D" parent="."]
+position = Vector2( 3, 13.2673 )
+scale = Vector2( 1, 2.0297 )
+color = Color( 1, 0.454902, 0.454902, 0.537255 )
+polygon = PoolVector2Array( 1, -9, 1, -110, 2, -110, 2, -9 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2( 2.5, -108 )
+shape = SubResource( 2 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 3, -2 )
+amount = 20
+lifetime = 1.9
+speed_scale = 10.59
+texture = ExtResource( 3 )
+emission_shape = 2
+emission_rect_extents = Vector2( 1.7, 1 )
+gravity = Vector2( 0, -98 )
+linear_accel = 20.0
+linear_accel_random = 1.0
+scale_amount = 0.15
+color = Color( 0.949219, 0.515396, 0.568209, 1 )
+color_ramp = SubResource( 3 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2( 3, -213 )
+amount = 20
+lifetime = 1.9
+speed_scale = 10.59
+texture = ExtResource( 3 )
+emission_shape = 2
+emission_rect_extents = Vector2( 1.7, 1 )
+linear_accel = 20.0
+linear_accel_random = 1.0
+scale_amount = 0.15
+color = Color( 0.949219, 0.515396, 0.568209, 1 )
+color_ramp = SubResource( 3 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
