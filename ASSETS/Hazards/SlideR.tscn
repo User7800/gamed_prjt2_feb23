@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://ASSETS/Art/Slides.png" type="Texture" id=1]
 [ext_resource path="res://ASSETS/Hazards/SlideR.gd" type="Script" id=2]
+[ext_resource path="res://ASSETS/Audio/deathNoises/sizzleShorter.mp3" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=4]
 resource_name = "DEATH"
@@ -52,18 +53,21 @@ tracks/0/keys = {
 [node name="SlideR" type="Node2D"]
 script = ExtResource( 2 )
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 1, 0 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2( 0, -3.29999 )
+polygon = PoolVector2Array( 184, 61, -37, -150, -86, -147, -191, 17, -217, 24, -121, -177, -16, -178, 14, -123, 185, 53 )
+
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2( 1, 0 )
 mode = 1
 
-[node name="Area2D" type="Area2D" parent="RigidBody2D"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D/Area2D"]
-polygon = PoolVector2Array( 184, 61, -37, -150, -86, -147, -191, 17, -217, 24, -121, -177, -16, -178, 14, -123, 185, 53 )
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2( -8, -3.29999 )
 z_index = 1
-polygon = PoolVector2Array( -212, 54, -149, 30, -148, -22, -109, -21, -107, -76, -82, -76, -83, -130, -33, -134, 188, 73 )
+polygon = PoolVector2Array( -222, 79.3, -165, 22.3, -138, -8.70001, -123, -36.7, -102, -74.7, -91, -93.7, -70, -134.7, -52, -135.7, 34, -62.7, 108, 18.3, 159.823, 53.2011, 179, 66.3, 199, 68.3, 210, 68.3, 219, 64.3, 248, 82.3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -74,4 +78,10 @@ anims/DEATH = SubResource( 4 )
 anims/RESET = SubResource( 5 )
 anims/Safe = SubResource( 6 )
 
-[connection signal="body_entered" from="RigidBody2D/Area2D" to="." method="_on_Area2D_body_entered"]
+[node name="SizzleShorter" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 2.4
+pitch_scale = 2.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="finished" from="SizzleShorter" to="." method="_on_SizzleShorter_finished"]

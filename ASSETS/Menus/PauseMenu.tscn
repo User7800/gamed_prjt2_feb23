@@ -52,11 +52,10 @@ margin_top = 241.0
 margin_right = 540.0
 margin_bottom = 413.0
 text = "Add to factory: 
-	Lasers covering hole in floor which are removed after dying to them 
-	but still leave the hole in the floor which is dyable
-	Add Sawblade, one moving, one static spinning.
+	Laser (done)
+	Add Sawblade, one moving, one static spinning. (done)
 	Add Crusher component line in Star Wars
-	Add more VERTICALITY
+	Add more VERTICALITY (done I guess)
 	Add 2 or so pits of molten metal to be replaced
 	 with either no molten metal, or another \"gotcha\" Hazard req'ing
 	double dipping like the laser hole

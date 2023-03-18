@@ -29,3 +29,7 @@ func _on_fallArea1_body_entered(body):
 		fallTime1 = true
 	if(fallTimes == 2):
 		fallTime2 = true
+
+
+func _on_Area2D_body_entered(body):
+	$FallSound.play()

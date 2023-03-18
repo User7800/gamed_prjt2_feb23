@@ -4,7 +4,8 @@ onready var slide = $AnimationPlayer
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var kount = 0
+var bewl = true
+var sizzled = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,12 +19,16 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	kount += 1
-	print("             SLIDEKOUNT = ", kount)
-	if(kount < 2):
+	if(bewl):
+		bewl = false
+		if(body.has_method("bushFX")):
+			body.bushFX()
+		$SizzleShorter.play()
+		while(not sizzled):
+			yield(get_tree().create_timer(.1), "timeout")
 		body.position = $"../SpawnPoint".position
 		slide.play("Safe")
-	if (kount >= 2):
-		
-		print("EEEEEEEEEEEEEEENTERRRRRRRRR THE SLIIIIIIIIIIDEEEEEEEEEEEE")
-	#pass # Replace with function body.
+
+
+func _on_SizzleShorter_finished():
+	sizzled = true

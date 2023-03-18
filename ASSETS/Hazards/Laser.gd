@@ -23,3 +23,5 @@ func _on_Area2D_body_entered(body):
 		$LL.visible = false
 		$LM.visible = false
 		$LR.visible = false
+		$beam1.visible = false
+		$beam2.visible = false

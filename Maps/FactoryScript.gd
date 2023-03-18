@@ -21,9 +21,12 @@ var HazAmt = 4
 var PBarPercent = float(100/HazAmt)
 #Progress Bar Incrementatiom
 func _on_DeathArea_body_entered(body):
+	$Character/Robert.outOfPit()
 	deathAmt += 1
 	$Overlay/PBar.value += PBarPercent
-	if(deathAmt<3):
+	if(deathAmt<2):
 		$Audio/DeathScream.play()
+	elif(deathAmt == 2):
+		$Audio/DeathGiggle1.play()
 	else:
-		$Audio/DeathGiggle.play()
+		$Audio/DeathGiggle2.play()

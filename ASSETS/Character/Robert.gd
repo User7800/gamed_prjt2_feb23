@@ -11,9 +11,9 @@ onready var state_machine = animation_tree.get("parameters/playback")
 # var a = 2
 # var b = "text"
 var velocity = Vector2(0, 0)
-const SPEED = 200
-const JUMP = -700
-const GRAV = 20
+var SPEED = 200
+var JUMP = -700
+var GRAV = 20
 const TERM_GRAVITY = 1000
 var last = 1
 var sawDeaths = 0
@@ -69,10 +69,30 @@ func ani_idle_LR():
 			state_machine.travel("IdleLeft")
 
 
-# Called when the node enters the scene tree for the first time.
-# func _ready():
-	# pass # Replace with function body.
+func bushFX():
+	SPEED = 10
+	JUMP = -250
 
+func outOfBush():
+	SPEED = 200
+	JUMP = -700
+	
+func metalPit():
+	GRAV = .5
+	velocity.y = 0
+	SPEED = 50
+	JUMP = -7
+
+func outOfPit():
+	GRAV = 20
+	SPEED = 200
+	JUMP = -700
+
+func speedPotion():
+	SPEED = 400
+	
+func UNspeed():
+	SPEED = 200
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

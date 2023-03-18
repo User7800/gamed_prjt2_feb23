@@ -17,4 +17,7 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
+	$TransiLayer.visible = true
+	$TransiLayer/Transitions/AnimationPlayer.play("Transition")
+	yield(get_tree().create_timer(1), "timeout")
 	get_tree().change_scene("res://Maps/Factory.tscn")

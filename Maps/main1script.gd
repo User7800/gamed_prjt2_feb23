@@ -27,6 +27,10 @@ var BAR_PERCENT = float(100.0/HazardCount)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#sets PBar (lvl 1) to 0%
+	$TransiLayer.visible = true
+	$TransiLayer/Transitions/AnimationPlayer.play("TransitionBackward")
+	yield(get_tree().create_timer(1), "timeout")
+	$TransiLayer.visible = false
 	bar.value = barValue
 	
 
@@ -34,6 +38,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	pass
+	"""
 	if( bushPoint.bushPoints == 1 ):
 		bar.value += BAR_PERCENT
 		bushPoint.bushPoints = 2
@@ -63,4 +69,8 @@ func _process(delta):
 		sandBox.sand += 1
 	#if(Input.is_action_just_pressed("pause_menu")):
 		#print("Paused")
-		
+		"""
+
+
+func _on_DeathArea_bumper():
+	bar.value += BAR_PERCENT

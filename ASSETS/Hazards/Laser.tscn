@@ -61,7 +61,7 @@ visible = false
 position = Vector2( 2.5, -108 )
 shape = SubResource( 2 )
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="beam1" type="CPUParticles2D" parent="."]
 position = Vector2( 3, -2 )
 amount = 20
 lifetime = 1.9
@@ -76,7 +76,7 @@ scale_amount = 0.15
 color = Color( 0.949219, 0.515396, 0.568209, 1 )
 color_ramp = SubResource( 3 )
 
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+[node name="beam2" type="CPUParticles2D" parent="."]
 position = Vector2( 3, -213 )
 amount = 20
 lifetime = 1.9

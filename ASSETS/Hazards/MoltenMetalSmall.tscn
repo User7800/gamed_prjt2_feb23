@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://MoltenMetalSmall.gd" type="Script" id=1]
+[ext_resource path="res://ASSETS/Hazards/MoltenMetalSmall.gd" type="Script" id=1]
 [ext_resource path="res://ASSETS/Art/Molten Metal.png" type="Texture" id=2]
+[ext_resource path="res://ASSETS/Audio/deathNoises/sizzleShort.mp3" type="AudioStream" id=3]
+[ext_resource path="res://ASSETS/Audio/ambientNoises/slurpSound.mp3" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "MetalMove"
@@ -36,7 +38,10 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 54, 56.75 )
+extents = Vector2( 60.2353, 19.3125 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 72.353, 17 )
 
 [node name="MoltenMetalSmall" type="Node2D"]
 scale = Vector2( 0.85, 1 )
@@ -51,12 +56,52 @@ hframes = 5
 anims/MetalMove = SubResource( 1 )
 anims/RESET = SubResource( 2 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="DeathArea2D" type="Area2D" parent="."]
 scale = Vector2( 1, 0.8 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 10, 13.25 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea2D"]
+position = Vector2( -4.76837e-07, 57.5 )
 scale = Vector2( 1, 0.8 )
 shape = SubResource( 3 )
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[node name="HotDripWide" type="CPUParticles2D" parent="."]
+position = Vector2( 0, 128 )
+amount = 1
+lifetime = 2.2
+emission_shape = 2
+emission_rect_extents = Vector2( 72, 1 )
+scale_amount = 1.5
+scale_amount_random = 0.72
+color = Color( 1, 0.639216, 0.0196078, 1 )
+
+[node name="HotDripNarrow" type="CPUParticles2D" parent="."]
+position = Vector2( 0, 128 )
+amount = 3
+lifetime = 4.15
+emission_shape = 2
+emission_rect_extents = Vector2( 20, 1 )
+gravity = Vector2( 0, 30 )
+scale_amount = 2.3
+scale_amount_random = 1.0
+color = Color( 1, 0.352941, 0.0313726, 1 )
+
+[node name="SlowArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlowArea2D"]
+position = Vector2( 0, -47 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 4 )
+
+[node name="MoltenSizzle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 2.0
+pitch_scale = 1.3
+
+[node name="RobertDrinkLava" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 3.354
+
+[connection signal="body_entered" from="DeathArea2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="SlowArea2D" to="." method="_on_SlowArea2D_body_entered"]
+[connection signal="finished" from="MoltenSizzle" to="." method="_on_MoltenSizzle_finished"]
+[connection signal="finished" from="RobertDrinkLava" to="." method="_on_RobertDrinkLava_finished"]

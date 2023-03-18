@@ -8,7 +8,10 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#$paper.play()
+	$TransiLayer.visible = true
+	$TransiLayer/Transitions/AnimationPlayer.play("TransitionBackward")
+	yield(get_tree().create_timer(1), "timeout")
+	$TransiLayer.visible = false
 	pass
 
 
@@ -19,6 +22,10 @@ func _ready():
 
 func _on_Start_pressed():
 	#$GiggleStart.play()
+	$TransiLayer.visible = true
+	$TransiLayer/Transitions/AnimationPlayer.play("Transition")
+	yield(get_tree().create_timer(1), "timeout")
+	#$TransiLayer.visible = false
 	get_tree().change_scene("res://Maps/MainScene.tscn")
 
 
@@ -28,6 +35,10 @@ func _on_Options_pressed():
 
 
 func _on_Exit_pressed():
+	$DeathScream.play()
+	$TransiLayer.visible = true
+	$TransiLayer/Transitions/AnimationPlayer.play("Transition")
+	yield(get_tree().create_timer(1), "timeout")
 	get_tree().quit()
 
 
