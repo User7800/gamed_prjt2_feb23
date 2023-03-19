@@ -711,11 +711,9 @@ scale = Vector2( 1, 1.1 )
 [node name="DoorFacINERT2" parent="DoorFacINERT" instance=ExtResource( 19 )]
 show_behind_parent = true
 position = Vector2( -2043.99, 7.56378 )
-scale = Vector2( 1, 1 )
 
 [node name="DoorFacINERT3" parent="DoorFacINERT/DoorFacINERT2" instance=ExtResource( 19 )]
 show_behind_parent = true
 position = Vector2( -704.99, 3.61951 )
-scale = Vector2( 1, 1 )
 
 [connection signal="body_entered" from="DeathArea" to="." method="_on_DeathArea_body_entered"]

@@ -1,17 +1,47 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://platforms/oneway_col.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tiles_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/Hazards/SUN.tscn" type="PackedScene" id=2]
 [ext_resource path="res://platforms/cloud.tscn" type="PackedScene" id=3]
-[ext_resource path="res://platforms/tiles_oneway.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ASSETS/Character/Robert.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ASSETS/Art/Heaven Level Background.jpg" type="Texture" id=6]
 [ext_resource path="res://ASSETS/Audio/Heaven Level Theme.mp3" type="AudioStream" id=7]
 [ext_resource path="res://Maps/Heaven.gd" type="Script" id=8]
 [ext_resource path="res://ASSETS/Menus/Transition.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ASSETS/Hazards/Crab2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://ASSETS/Fonts/BlockyFont.TTF" type="DynamicFontData" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2714.5, 105 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.443137, 0.666667, 0.203922, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 0, 0, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 2
+
+[sub_resource type="DynamicFont" id=4]
+size = 12
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 9
+font_data = ExtResource( 11 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 135, 143.226 )
 
 [node name="Level3" type="Node2D"]
 script = ExtResource( 8 )
@@ -32,6 +62,7 @@ autoplay = true
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 5, 49 )
 texture = ExtResource( 6 )
 
 [node name="Robert" parent="." instance=ExtResource( 5 )]
@@ -41,33 +72,55 @@ position = Vector2( -470, -225 )
 rotation = -1.309
 current = true
 limit_left = -500
+limit_right = 2600
 limit_bottom = 600
 limit_smoothed = true
 
-[node name="oneway" parent="." instance=ExtResource( 4 )]
-position = Vector2( -382, -172 )
-tile_data = PoolIntArray( -1310708, 1, 0, -1310707, 1, 1, -1310706, 1, 1, -1310705, 1, 1, -1310704, 1, 1, -1310703, 1, 2, -851967, 1, 0, -851966, 1, 1, -851965, 1, 1, -851964, 1, 1, -851963, 1, 1, -851962, 1, 2, -7, 1, 0, -6, 1, 1, -5, 1, 1, -4, 1, 1, -3, 1, 1, -2, 1, 1, -1, 1, 2 )
+[node name="solid" parent="." instance=ExtResource( 1 )]
+position = Vector2( 30, 426 )
+tile_data = PoolIntArray( -6291487, 1, 65536, -6356849, 1, 65536, -6225951, 1, 393216, -6291313, 1, 393216, -6160415, 1, 393216, -6225777, 1, 393216, -6094879, 1, 393216, -6160241, 1, 393216, -6029343, 1, 393216, -6094705, 1, 393216, -5963807, 1, 393216, -6029169, 1, 393216, -5898271, 1, 393216, -5963633, 1, 393216, -5832735, 1, 393216, -5898097, 1, 393216, -5767199, 1, 393216, -5832561, 1, 393216, -5701663, 1, 393216, -5767025, 1, 393216, -5636127, 1, 393216, -5701489, 1, 393216, -5570591, 1, 393216, -5635953, 1, 393216, -5505055, 1, 393216, -5570417, 1, 393216, -5439519, 1, 393216, -5504881, 1, 393216, -5373983, 1, 393216, -5439345, 1, 393216, -5308447, 1, 393216, -5373809, 1, 393216, -5242911, 1, 393216, -5308273, 1, 393216, -5177375, 1, 393216, -5242737, 1, 393216, -5111839, 1, 393216, -5177201, 1, 393216, -5046303, 1, 393216, -5111665, 1, 393216, -4980767, 1, 393216, -5046129, 1, 393216, -4915231, 1, 393216, -4980593, 1, 393216, -4849695, 1, 393216, -4915057, 1, 393216, -4784159, 1, 393216, -4849521, 1, 393216, -4718623, 1, 393216, -4783985, 1, 393216, -4653087, 1, 393216, -4718449, 1, 393216, -4587551, 1, 393216, -4652913, 1, 393216, -4522015, 1, 393216, -4587377, 1, 393216, -4456479, 1, 393216, -4521841, 1, 393216, -4390943, 1, 393216, -4456305, 1, 393216, -4325407, 1, 393216, -4390769, 1, 393216, -4259871, 1, 393216, -4325233, 1, 393216, -4194335, 1, 393216, -4259697, 1, 393216, -4128799, 1, 393216, -4194161, 1, 393216, -4063263, 1, 393216, -4128625, 1, 393216, -3997727, 1, 393216, -4063089, 1, 393216, -3932191, 1, 393216, -3997553, 1, 393216, -3866655, 1, 393216, -3932017, 1, 393216, -3801119, 1, 393216, -3866481, 1, 393216, -3735583, 1, 393216, -3800945, 1, 393216, -3670047, 1, 393216, -3735409, 1, 393216, -3604511, 1, 393216, -3669873, 1, 393216, -3538975, 1, 393216, -3604337, 1, 393216, -3473439, 1, 393216, -3538801, 1, 393216, -3407903, 1, 393216, -3473265, 1, 393216, -3342367, 1, 393216, -3407729, 1, 393216, -3276831, 1, 393216, -3342193, 1, 393216, -3211295, 1, 393216, -3276657, 1, 393216, -3145759, 1, 393216, -3211121, 1, 393216, -3080223, 1, 393216, -3145585, 1, 393216, -3014687, 1, 393216, -3080049, 1, 393216, -2949151, 1, 393216, -3014513, 1, 393216, -2883615, 1, 393216, -2948977, 1, 393216, -2818079, 1, 393216, -2883441, 1, 393216, -2752543, 1, 393216, -2817905, 1, 393216, -2687007, 1, 393216, -2752369, 1, 393216, -2621471, 1, 393216, -2686833, 1, 393216, -2555935, 1, 393216, -2621297, 1, 393216, -2490399, 1, 393216, -2555761, 1, 393216, -2424863, 1, 393216, -2490225, 1, 393216, -2359327, 1, 393216, -2424689, 1, 393216, -2293791, 1, 393216, -2359153, 1, 393216, -2228255, 1, 393216, -2293617, 1, 393216, -2162719, 1, 393216, -2228081, 1, 393216, -2097183, 1, 393216, -2162545, 1, 393216, -2031647, 1, 393216, -2097009, 1, 393216, -1966111, 1, 393216, -2031473, 1, 393216, -1900575, 1, 393216, -1965937, 1, 393216, -1835039, 1, 393216, -1900401, 1, 393216, -1769503, 1, 393216, -1834865, 1, 393216, -1703967, 1, 393216, -1769329, 1, 393216, -1638431, 1, 393216, -1703793, 1, 393216, -1572895, 1, 393216, -1638257, 1, 393216, -1507359, 1, 393216, -1572721, 1, 393216, -1441823, 1, 393216, -1507185, 1, 393216, -1376287, 1, 393216, -1441649, 1, 393216, -1310751, 1, 393216, -1376113, 1, 393216, -1245215, 1, 393216, -1310577, 1, 393216, -1179679, 1, 393216, -1245041, 1, 393216, -1114143, 1, 393216, -1179505, 1, 393216, -1048607, 1, 393216, -1113969, 1, 393216, -983071, 1, 393216, -1048433, 1, 393216, -917535, 1, 393216, -982897, 1, 393216, -851999, 1, 393216, -917361, 1, 393216, -786463, 1, 393216, -851825, 1, 393216, -720927, 1, 393216, -786289, 1, 393216, -655391, 1, 393216, -720753, 1, 393216, -589855, 1, 393216, -655217, 1, 393216, -524319, 1, 393216, -589681, 1, 393216, -458783, 1, 393216, -524145, 1, 393216, -393247, 1, 393216, -458609, 1, 393216, -327711, 1, 393216, -393073, 1, 393216, -262175, 1, 393216, -327537, 1, 393216, -196639, 1, 393216, -262001, 1, 393216, -131103, 1, 393216, -196465, 1, 393216, -65567, 1, 393216, -130929, 1, 393216, -31, 1, 393216, -65393, 1, 393216, 65505, 1, 393216, 143, 1, 393216, 131041, 1, 393216, 65679, 1, 393216, 196577, 1, 393216, 131215, 1, 393216, 262113, 1, 393216, 196751, 1, 393216, 327649, 1, 393216, 262287, 1, 393216, 393185, 1, 393216, 327823, 1, 393216, 458721, 1, 393216, 393359, 1, 393216, 524257, 1, 393216, 458895, 1, 393216, 589793, 1, 393216, 524431, 1, 393216, 655329, 1, 393216, 589967, 1, 458752, 720865, 1, 393218, 720866, 1, 2, 720867, 1, 2, 720868, 1, 2, 720869, 1, 2, 720870, 1, 2, 720871, 1, 2, 720872, 1, 2, 720873, 1, 2, 720874, 1, 2, 720875, 1, 2, 720876, 1, 2, 720877, 1, 2, 720878, 1, 2, 720879, 1, 2, 720880, 1, 2, 720881, 1, 2, 720882, 1, 2, 720883, 1, 2, 720884, 1, 2, 720885, 1, 2, 720886, 1, 2, 720887, 1, 2, 720888, 1, 2, 720889, 1, 2, 720890, 1, 2, 720891, 1, 2, 720892, 1, 2, 720893, 1, 2, 720894, 1, 2, 720895, 1, 2, 655360, 1, 2, 655361, 1, 2, 655362, 1, 2, 655363, 1, 2, 655364, 1, 2, 655365, 1, 2, 655366, 1, 2, 655367, 1, 2, 655368, 1, 2, 655369, 1, 2, 655370, 1, 2, 655371, 1, 2, 655372, 1, 2, 655373, 1, 2, 655374, 1, 2, 655375, 1, 2, 655376, 1, 2, 655377, 1, 2, 655378, 1, 2, 655379, 1, 2, 655380, 1, 2, 655381, 1, 2, 655382, 1, 2, 655383, 1, 2, 655384, 1, 2, 655385, 1, 2, 655386, 1, 2, 655387, 1, 2, 655388, 1, 2, 655389, 1, 2, 655390, 1, 2, 655391, 1, 2, 655392, 1, 2, 655393, 1, 2, 655394, 1, 2, 655395, 1, 2, 655396, 1, 2, 655397, 1, 2, 655398, 1, 2, 655399, 1, 2, 655400, 1, 2, 655401, 1, 2, 655402, 1, 2, 655403, 1, 2, 655404, 1, 2, 655405, 1, 2, 655406, 1, 2, 655407, 1, 2, 655408, 1, 2, 655409, 1, 2, 655410, 1, 2, 655411, 1, 2, 655412, 1, 2, 655413, 1, 2, 655414, 1, 2, 655415, 1, 2, 655416, 1, 2, 655417, 1, 2, 655418, 1, 2, 655419, 1, 2, 655420, 1, 2, 655421, 1, 2, 655422, 1, 2, 655423, 1, 2, 655424, 1, 2, 655425, 1, 2, 655426, 1, 2, 655427, 1, 2, 655428, 1, 2, 655429, 1, 2, 655430, 1, 2, 655431, 1, 2, 655432, 1, 2, 655433, 1, 2, 655434, 1, 2, 655435, 1, 2, 655436, 1, 2, 655437, 1, 2, 655438, 1, 2, 655439, 1, 2, 655440, 1, 2, 655441, 1, 2, 655442, 1, 2, 655443, 1, 2, 655444, 1, 2, 655445, 1, 2, 655446, 1, 2, 655447, 1, 2, 655448, 1, 2, 655449, 1, 2, 655450, 1, 2, 655451, 1, 2, 655452, 1, 2, 655453, 1, 2, 655454, 1, 2, 655455, 1, 2, 655456, 1, 2, 655457, 1, 2, 655458, 1, 2, 655459, 1, 2, 655460, 1, 2, 655461, 1, 2, 655462, 1, 2, 655463, 1, 2, 655464, 1, 2, 655465, 1, 2, 655466, 1, 2, 655467, 1, 2, 655468, 1, 2, 655469, 1, 2, 655470, 1, 2, 655471, 1, 2, 655472, 1, 2, 655473, 1, 2, 655474, 1, 2, 655475, 1, 2, 655476, 1, 2, 655477, 1, 2, 655478, 1, 2, 655479, 1, 2, 655480, 1, 2, 655481, 1, 2, 655482, 1, 2, 655483, 1, 2, 655484, 1, 2, 655485, 1, 2, 655486, 1, 2, 655487, 1, 2, 655488, 1, 2, 655489, 1, 2, 655490, 1, 2, 655491, 1, 2, 655492, 1, 2, 655493, 1, 2, 655494, 1, 2, 655495, 1, 2, 655496, 1, 2, 655497, 1, 2, 655498, 1, 2, 655499, 1, 2, 655500, 1, 2, 655501, 1, 2, 655502, 1, 3 )
 
-[node name="cloud" parent="oneway" instance=ExtResource( 3 )]
-position = Vector2( -108, -139 )
+[node name="cloud" parent="solid" instance=ExtResource( 3 )]
+position = Vector2( -1, 6 )
 
-[node name="oneway_col" parent="oneway/cloud" instance=ExtResource( 1 )]
-position = Vector2( 137, -93 )
-scale = Vector2( 1.2, 1 )
+[node name="cloud2" parent="solid" instance=ExtResource( 3 )]
+position = Vector2( -123, -120 )
 
-[node name="oneway_col2" parent="oneway/cloud" instance=ExtResource( 1 )]
-position = Vector2( 334, -219 )
-scale = Vector2( 1.2, 1 )
+[node name="cloud3" parent="solid" instance=ExtResource( 3 )]
+position = Vector2( -243, -264 )
 
-[node name="oneway_col" parent="oneway" instance=ExtResource( 1 )]
-position = Vector2( -113, -17 )
-scale = Vector2( 1.3, 1 )
+[node name="cloud4" parent="solid" instance=ExtResource( 3 )]
+position = Vector2( -367, -396 )
+
+[node name="cloud5" parent="solid" instance=ExtResource( 3 )]
+position = Vector2( -226, -586 )
+
+[node name="cloud6" parent="solid" instance=ExtResource( 3 )]
+position = Vector2( -528, -613 )
+
+[node name="cloud7" parent="solid" instance=ExtResource( 3 )]
+position = Vector2( -528, -802 )
+
+[node name="cloud8" parent="solid" instance=ExtResource( 3 )]
+position = Vector2( -229, -844 )
+
+[node name="cloud9" parent="solid" instance=ExtResource( 3 )]
+position = Vector2( 91, -889 )
+
+[node name="cloud10" parent="solid" instance=ExtResource( 3 )]
+position = Vector2( 397, -926 )
+
+[node name="cloud11" parent="solid" instance=ExtResource( 3 )]
+position = Vector2( 690, -974 )
+
+[node name="cloud12" parent="solid" instance=ExtResource( 3 )]
+position = Vector2( 729, -1176 )
 
 [node name="SUN" parent="." instance=ExtResource( 2 )]
-position = Vector2( 106, 42 )
+position = Vector2( 119, 91 )
 
 [node name="SpawnPoint" type="Position2D" parent="."]
-position = Vector2( -455, -837 )
+position = Vector2( -467, -869 )
 
 [node name="fall_area" type="Area2D" parent="."]
 position = Vector2( -2407, 1346 )
@@ -79,4 +132,45 @@ __meta__ = {
 position = Vector2( 2704.5, 95 )
 shape = SubResource( 1 )
 
+[node name="Hazards" type="Node" parent="."]
+
+[node name="Crab" parent="Hazards" instance=ExtResource( 10 )]
+position = Vector2( 75, 422 )
+
+[node name="Crab2" parent="Hazards" instance=ExtResource( 10 )]
+position = Vector2( 2592, 595 )
+
+[node name="Overlay" type="CanvasLayer" parent="."]
+
+[node name="PBar" type="ProgressBar" parent="Overlay"]
+margin_left = 220.0
+margin_top = 8.0
+margin_right = 820.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+rounded = true
+allow_greater = true
+
+[node name="PBarLabel" type="Label" parent="Overlay"]
+margin_left = 18.0
+margin_top = 8.0
+margin_right = 125.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.427451, 0.737255, 0.72549, 1 )
+custom_constants/shadow_offset_x = 0
+custom_fonts/font = SubResource( 4 )
+text = "HAZARDS NEUTRALIZED:"
+
+[node name="DeathArea" type="Area2D" parent="."]
+position = Vector2( 0.00618219, 1.99999 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
+position = Vector2( -468.006, -870 )
+shape = SubResource( 5 )
+
 [connection signal="body_entered" from="fall_area" to="Robert" method="_on_fall_area_body_entered"]
+[connection signal="body_entered" from="DeathArea" to="." method="_on_DeathArea_body_entered"]
