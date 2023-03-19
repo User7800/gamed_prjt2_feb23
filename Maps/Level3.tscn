@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://platforms/oneway_col.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/Hazards/SUN.tscn" type="PackedScene" id=2]
@@ -7,16 +7,25 @@
 [ext_resource path="res://ASSETS/Character/Robert.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ASSETS/Art/Heaven Level Background.jpg" type="Texture" id=6]
 [ext_resource path="res://ASSETS/Audio/Heaven Level Theme.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Maps/Heaven.gd" type="Script" id=8]
+[ext_resource path="res://ASSETS/Menus/Transition.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2714.5, 105 )
 
 [node name="Level3" type="Node2D"]
+script = ExtResource( 8 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Audio" type="Node" parent="."]
+
+[node name="HeavenAudio" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 7 )
 volume_db = -5.571
 autoplay = true
+
+[node name="TransiLayer" type="CanvasLayer" parent="."]
+
+[node name="Transitions" parent="TransiLayer" instance=ExtResource( 9 )]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

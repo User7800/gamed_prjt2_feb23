@@ -557,7 +557,12 @@ extents = Vector2( 135, 143.226 )
 rotation = 0.0030911
 script = ExtResource( 6 )
 
-[node name="Transitions" parent="." instance=ExtResource( 22 )]
+[node name="TransiLayer" type="CanvasLayer" parent="."]
+
+[node name="Transitions" parent="TransiLayer" instance=ExtResource( 22 )]
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="SpawnPoint" type="Position2D" parent="."]
 position = Vector2( -498, -314 )
@@ -591,6 +596,7 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
 custom_styles/fg = SubResource( 5 )
 custom_styles/bg = SubResource( 6 )
+rounded = true
 allow_greater = true
 
 [node name="PBarLabel" type="Label" parent="Overlay"]
@@ -673,11 +679,6 @@ scale = Vector2( 1.6, 1.6 )
 [node name="MoltenMetalSmall" parent="Hazards" instance=ExtResource( 10 )]
 position = Vector2( -640, 703 )
 
-[node name="DoorFac" parent="." instance=ExtResource( 18 )]
-position = Vector2( 2424.79, 573.507 )
-rotation = -0.0030911
-scale = Vector2( 1, 1.1 )
-
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 4, 4 )
 tile_set = SubResource( 3 )
@@ -692,6 +693,11 @@ position = Vector2( 0.00618219, 1.99999 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
 position = Vector2( -499, -430.226 )
 shape = SubResource( 8 )
+
+[node name="DoorFac" parent="." instance=ExtResource( 18 )]
+position = Vector2( 2424.79, 573.507 )
+rotation = -0.0030911
+scale = Vector2( 1, 1.1 )
 
 [node name="cloud" parent="." instance=ExtResource( 17 )]
 position = Vector2( -579.698, 98.7903 )

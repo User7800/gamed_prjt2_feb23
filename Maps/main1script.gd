@@ -39,7 +39,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-	"""
+	""" Old way of checking for progress bar updates...
 	if( bushPoint.bushPoints == 1 ):
 		bar.value += BAR_PERCENT
 		bushPoint.bushPoints = 2
@@ -71,6 +71,6 @@ func _process(delta):
 		#print("Paused")
 		"""
 
-
+#...new way of checking for progress bar updates... pretty nifty eh?
 func _on_DeathArea_bumper():
 	bar.value += BAR_PERCENT
