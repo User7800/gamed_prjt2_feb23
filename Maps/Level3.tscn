@@ -124,7 +124,7 @@ position = Vector2( 690, -974 )
 position = Vector2( 729, -1176 )
 
 [node name="SpawnPoint" type="Position2D" parent="."]
-position = Vector2( -467, -869 )
+position = Vector2( -449, -1062 )
 
 [node name="fall_area" type="Area2D" parent="."]
 position = Vector2( -2407, 1346 )
@@ -176,7 +176,7 @@ text = "HAZARDS NEUTRALIZED:"
 position = Vector2( 0.00618219, 1.99999 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
-position = Vector2( -468.006, -870 )
+position = Vector2( -458.006, -1055 )
 shape = SubResource( 5 )
 
 [connection signal="body_entered" from="fall_area" to="Robert" method="_on_fall_area_body_entered"]
