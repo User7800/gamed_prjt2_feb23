@@ -268,5 +268,6 @@ text = "HAZARDS NEUTRALIZED:"
 [connection signal="body_entered" from="fall_area" to="Robert" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Saw/SawArea" to="Robert" method="_on_SawArea_body_entered"]
 [connection signal="bumper" from="DeathArea" to="." method="_on_DeathArea_bumper"]
+[connection signal="tree_exiting" from="Overlay/PBar" to="Overlay/PBar" method="_on_PBar_tree_exiting"]
 
 [editable path="Saw"]

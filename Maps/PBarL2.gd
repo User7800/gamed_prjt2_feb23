@@ -28,7 +28,8 @@ func _ready():
 
 func _on_PBar_tree_exiting():
 	var file = File.new()
-	file.open("user://save.dat", File.WRITE)
-	file.store_line("Level 1 completion: " + str(value) + '%')
-	print("Level 1 completion: " + str(value) + '%')
+	file.open("user://save.dat", File.READ_WRITE)
+	file.store_line("Level 2 completion: " + str(value) + '%')
+	#print("Level 2 completion: " + str(value) + '%')
+	print(file.get_as_text())
 	file.close()

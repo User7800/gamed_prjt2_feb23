@@ -41,7 +41,7 @@ func _physics_process(delta):
 		
 		
 	
-	print("Y=", velocity.y, " X=", velocity.x)
+	#print("Y=", velocity.y, " X=", velocity.x)
 	#ani_idle_LR()
 	#ani_walk_LR(delta)
 	velocity = move_and_slide(velocity, Vector2.UP)

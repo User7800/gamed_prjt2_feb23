@@ -14,16 +14,16 @@ func _ready():
 	$TransiLayer.visible = false
 
 var deathAmt = 0
-var HazAmt = float(3.0)
+var HazAmt = float(5.0)
 var PBarPercent = float(100/HazAmt)
 
 func _on_DeathArea_body_entered(body):
 	#$Character/Robert.outOfPit()
 	deathAmt += 1
 	$Overlay/PBar.value += PBarPercent
-	#if(deathAmt<2):
-	#	$Audio/DeathScream.play()
-	#elif(deathAmt == 2):
-	#	$Audio/DeathGiggle1.play()
-	#else:
-	#	$Audio/DeathGiggle2.play()
+	if(deathAmt<2):
+		$Audio/DeathScream.play()
+	elif(deathAmt == 2):
+		$Audio/DeathGiggle1.play()
+	else:
+		$Audio/DeathGiggle2.play()
