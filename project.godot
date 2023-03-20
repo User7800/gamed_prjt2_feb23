@@ -10,9 +10,14 @@ config_version=4
 
 [application]
 
-config/name="GnomishSafetyTester"
+config/name="GnomeSafetyTester"
+config/description="Gnome Tests the Safety of random scenes"
 run/main_scene="res://ASSETS/Menus/TitleScreen.tscn"
-config/icon="res://icon.png"
+config/icon="res://ASSETS/Art/gnome.png"
+
+[autoload]
+
+EndScreen="*res://ASSETS/Menus/EndScreen.gd"
 
 [display]
 

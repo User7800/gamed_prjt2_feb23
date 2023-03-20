@@ -40,7 +40,11 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 14
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 2
 extra_spacing_char = 1
+extra_spacing_space = 1
 font_data = ExtResource( 2 )
 
 [node name="TitleScreen" type="Control"]
@@ -187,6 +191,7 @@ scale_amount = 0.05
 
 [node name="GiggleStart" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+volume_db = -5.009
 
 [node name="ExitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
@@ -194,6 +199,7 @@ volume_db = -16.957
 
 [node name="ButtonClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+volume_db = -20.097
 
 [node name="paper" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
@@ -244,7 +250,6 @@ margin_left = -445.0
 margin_top = 9.0
 margin_right = -14.0
 margin_bottom = 81.0
-hint_tooltip = "Thanks Dylan :D"
 mouse_filter = 1
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
