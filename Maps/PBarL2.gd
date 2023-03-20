@@ -33,3 +33,7 @@ func _on_PBar_tree_exiting():
 	#print("Level 2 completion: " + str(value) + '%')
 	print(file.get_as_text())
 	file.close()
+
+
+func _on_DoorFac_storePercent2():
+	EndScreen.L2P = value

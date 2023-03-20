@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://tiles_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/Hazards/SlideR.tscn" type="PackedScene" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://ASSETS/Hazards/CrabLvl1.gd" type="Script" id=20]
 [ext_resource path="res://ASSETS/Menus/Transition.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Maps/Timer.gd" type="Script" id=22]
+[ext_resource path="res://ASSETS/Audio/deathNoises/sawHitShort.mp3" type="AudioStream" id=23]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2714.5, 105 )
@@ -189,6 +190,9 @@ tree_root = SubResource( 8 )
 anim_player = NodePath("..")
 parameters/playback = SubResource( 9 )
 
+[node name="SawHitGnome" type="AudioStreamPlayer" parent="Saw"]
+stream = ExtResource( 23 )
+
 [node name="SpawnPoint" type="Position2D" parent="."]
 position = Vector2( 328, -556 )
 
@@ -302,6 +306,8 @@ text = "TIME ELAPSED:"
 
 [connection signal="body_entered" from="fall_area" to="Robert" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Saw/SawArea" to="Robert" method="_on_SawArea_body_entered"]
+[connection signal="storePercent" from="Door" to="Overlay/PBar" method="_on_Door_storePercent"]
+[connection signal="storeTime" from="Door" to="Overlay/Timer" method="_on_Door_storeTime"]
 [connection signal="bumper" from="DeathArea" to="." method="_on_DeathArea_bumper"]
 [connection signal="tree_exiting" from="Overlay/PBar" to="Overlay/PBar" method="_on_PBar_tree_exiting"]
 

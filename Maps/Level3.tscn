@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://tiles_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/Hazards/SUN.tscn" type="PackedScene" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://ASSETS/Audio/chuckles/chuckle1.mp3" type="AudioStream" id=15]
 [ext_resource path="res://Maps/PBarL3.gd" type="Script" id=16]
 [ext_resource path="res://ASSETS/Build/DoorEnd.tscn" type="PackedScene" id=17]
+[ext_resource path="res://ASSETS/Audio/chuckles/chucke3.mp3" type="AudioStream" id=18]
+[ext_resource path="res://Maps/Timer3.gd" type="Script" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2714.5, 105 )
@@ -47,6 +49,18 @@ outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_top = 9
 font_data = ExtResource( 11 )
 
+[sub_resource type="DynamicFont" id=6]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 5
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=7]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 5
+font_data = ExtResource( 11 )
+
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 135, 143.226 )
 
@@ -74,6 +88,10 @@ volume_db = 3.0
 
 [node name="DeathGiggle2" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 15 )
+volume_db = 3.0
+
+[node name="DeathGiggle3" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 18 )
 volume_db = 3.0
 
 [node name="TransiLayer" type="CanvasLayer" parent="."]
@@ -208,6 +226,28 @@ custom_constants/shadow_offset_x = 0
 custom_fonts/font = SubResource( 4 )
 text = "HAZARDS NEUTRALIZED:"
 
+[node name="Timer" type="Label" parent="Overlay"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -163.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 6 )
+text = "MM:SS"
+align = 1
+script = ExtResource( 19 )
+
+[node name="TimerLabel" type="Label" parent="Overlay"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -344.0
+margin_top = 10.0
+margin_right = -168.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 7 )
+text = "TIME ELAPSED:"
+
 [node name="DeathArea" type="Area2D" parent="."]
 position = Vector2( 0.00618219, 1.99999 )
 
@@ -221,3 +261,5 @@ position = Vector2( 2271, 404 )
 [connection signal="body_entered" from="fall_area" to="Robert" method="_on_fall_area_body_entered"]
 [connection signal="tree_exiting" from="Overlay/PBar" to="Overlay/PBar" method="_on_PBar_tree_exiting"]
 [connection signal="body_entered" from="DeathArea" to="." method="_on_DeathArea_body_entered"]
+[connection signal="storePercent3" from="DoorEnd" to="Overlay/PBar" method="_on_DoorEnd_storePercent3"]
+[connection signal="storeTime3" from="DoorEnd" to="Overlay/Timer" method="_on_DoorEnd_storeTime3"]

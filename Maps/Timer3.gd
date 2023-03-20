@@ -5,7 +5,7 @@ extends Label
 # var a = 2
 # var b = "text"
 var minSec = 0
-var passed = null
+var passed #= null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -21,6 +21,9 @@ func _process(delta):
 	#reference autoload for time storage
 
 
-func _on_Door_storeTime():
+
+func _on_DoorEnd_storeTime3():
 	if(passed != null):
-		EndScreen.LevelOneTime = passed
+		EndScreen.LevelThreeTime = String(passed)
+		EndScreen._updateData()
+		#EndScreen1.L3TD.text = String(passed)

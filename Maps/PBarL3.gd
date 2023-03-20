@@ -33,3 +33,9 @@ func _on_PBar_tree_exiting():
 	#print("Level 3 completion: " + str(value) + '%')
 	print(file.get_as_text())
 	file.close()
+
+
+func _on_DoorEnd_storePercent3():
+	EndScreen.L3P = String(value)
+	EndScreen._updateData()
+	#EndScreen1.L3P = String(value)

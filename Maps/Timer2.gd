@@ -21,6 +21,7 @@ func _process(delta):
 	#reference autoload for time storage
 
 
-func _on_Door_storeTime():
+
+func _on_DoorFac_storeTime2():
 	if(passed != null):
-		EndScreen.LevelOneTime = passed
+		EndScreen.LevelTwoTime = passed

@@ -27,6 +27,7 @@ var BAR_PERCENT = float(100.0/HazardCount)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#sets PBar (lvl 1) to 0%
+	#EndScreen1.visible = false
 	$TransiLayer.visible = true
 	$TransiLayer/Transitions/AnimationPlayer.play("TransitionBackward")
 	yield(get_tree().create_timer(1), "timeout")

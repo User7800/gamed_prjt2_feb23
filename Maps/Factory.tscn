@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://ASSETS/Backgrounds/FactoryBackground.png" type="Texture" id=1]
 [ext_resource path="res://ASSETS/Character/Robert.tscn" type="PackedScene" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://ASSETS/Hazards/MoltenMetalBig.tscn" type="PackedScene" id=21]
 [ext_resource path="res://ASSETS/Menus/Transition.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Maps/PBarL2.gd" type="Script" id=23]
+[ext_resource path="res://Maps/Timer2.gd" type="Script" id=24]
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.443137, 0.666667, 0.203922, 1 )
@@ -48,6 +49,18 @@ size = 12
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_top = 9
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=19]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 5
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=20]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 5
 font_data = ExtResource( 9 )
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
@@ -612,6 +625,28 @@ custom_constants/shadow_offset_x = 0
 custom_fonts/font = SubResource( 7 )
 text = "HAZARDS NEUTRALIZED:"
 
+[node name="Timer" type="Label" parent="Overlay"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -163.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 19 )
+text = "MM:SS"
+align = 1
+script = ExtResource( 24 )
+
+[node name="TimerLabel" type="Label" parent="Overlay"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -344.0
+margin_top = 10.0
+margin_right = -168.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 20 )
+text = "TIME ELAPSED:"
+
 [node name="PauseMenuCanvas" type="CanvasLayer" parent="."]
 layer = 10
 
@@ -668,13 +703,17 @@ scale = Vector2( 2, 0.893 )
 position = Vector2( 445, 897 )
 rotation = 0.0030911
 
+[node name="SawStat2" parent="Hazards" instance=ExtResource( 13 )]
+position = Vector2( 2432, 770 )
+rotation = 0.0030911
+
 [node name="Saw" parent="Hazards" instance=ExtResource( 14 )]
 position = Vector2( 322, -226 )
 rotation = 0.0030911
 script = ExtResource( 15 )
 
 [node name="Crab" parent="Hazards" instance=ExtResource( 11 )]
-position = Vector2( -417, 833 )
+position = Vector2( 2016, -72 )
 rotation = 0.0030911
 scale = Vector2( 1.6, 1.6 )
 
@@ -720,3 +759,5 @@ position = Vector2( -704.99, 3.61951 )
 
 [connection signal="tree_exiting" from="Overlay/PBar" to="Overlay/PBar" method="_on_PBar_tree_exiting"]
 [connection signal="body_entered" from="DeathArea" to="." method="_on_DeathArea_body_entered"]
+[connection signal="storePercent2" from="DoorFac" to="Overlay/PBar" method="_on_DoorFac_storePercent2"]
+[connection signal="storeTime2" from="DoorFac" to="Overlay/Timer" method="_on_DoorFac_storeTime2"]

@@ -10,6 +10,7 @@ func _on_SawArea_body_entered(body):
 	#ani_saw.play("stopSaw")
 	#ani_saw2.travel("stopSaw")
 	#queue_free()
+	$SawHitGnome.play()
 	ani_saw.play("Halt")
 	#$SawAnimationPlayer.f
 

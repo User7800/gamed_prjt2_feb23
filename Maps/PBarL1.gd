@@ -32,3 +32,7 @@ func _on_PBar_tree_exiting():
 	file.store_line("Level 1 completion: " + str(value) + '%')
 	print("Level 1 completion: " + str(value) + '%')
 	file.close()
+
+
+func _on_Door_storePercent():
+	EndScreen.L1P = String(value)

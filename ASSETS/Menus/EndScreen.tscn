@@ -1,0 +1,290 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://ASSETS/Menus/6.png" type="Texture" id=1]
+[ext_resource path="res://ASSETS/Menus/EndScreen.gd" type="Script" id=2]
+[ext_resource path="res://ASSETS/Fonts/BlockyFont.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://ASSETS/Audio/GnomeYelling.mp3" type="AudioStream" id=4]
+[ext_resource path="res://ASSETS/Audio/MenuNoises/ClickCool.wav" type="AudioStream" id=5]
+[ext_resource path="res://ASSETS/Menus/Transition.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+outline_size = 1
+outline_color = Color( 0.996078, 0.423529, 0.564706, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+outline_size = 1
+outline_color = Color( 0.0196078, 0.596078, 0, 1 )
+extra_spacing_top = 4
+extra_spacing_bottom = 2
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+outline_size = 1
+outline_color = Color( 1, 0, 0, 1 )
+extra_spacing_top = 4
+extra_spacing_bottom = 2
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 4
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 13
+extra_spacing_top = 4
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+outline_size = 1
+outline_color = Color( 0.529412, 0.156863, 0.415686, 1 )
+font_data = ExtResource( 3 )
+
+[node name="EndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="TransiLayer" type="CanvasLayer" parent="."]
+layer = 3
+visible = false
+
+[node name="Transitions" parent="TransiLayer" instance=ExtResource( 6 )]
+mouse_filter = 2
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -220.5
+margin_top = 120.0
+margin_right = 220.5
+margin_bottom = 156.0
+rect_pivot_offset = Vector2( 200, 0 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.529412, 0.156863, 0.415686, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "You beat the Game!"
+align = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 168.0
+margin_top = 351.0
+margin_right = 427.0
+margin_bottom = 480.0
+
+[node name="ReturnToMainMenu" type="Button" parent="VBoxContainer"]
+margin_right = 259.0
+margin_bottom = 34.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Main Menu"
+
+[node name="Quit Button" type="Button" parent="VBoxContainer"]
+margin_top = 38.0
+margin_right = 259.0
+margin_bottom = 72.0
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Quit"
+
+[node name="SpaceFillerButton" type="Button" parent="VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 76.0
+margin_right = 259.0
+margin_bottom = 96.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 100.0
+margin_right = 259.0
+margin_bottom = 129.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_top = 1.0
+margin_right = 154.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 2 )
+text = "REPLAY LEVEL:"
+
+[node name="Lvl1" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 158.0
+margin_right = 187.0
+margin_bottom = 29.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 3 )
+text = " 1 "
+
+[node name="Lvl2" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 191.0
+margin_right = 223.0
+margin_bottom = 29.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 3 )
+text = " 2 "
+
+[node name="Lvl3" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 227.0
+margin_right = 259.0
+margin_bottom = 29.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 3 )
+text = " 3 "
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="ButtonClickSound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 5 )
+volume_db = -20.097
+
+[node name="DeathScream" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 4 )
+
+[node name="ScoreRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -87.0
+margin_top = -86.0
+margin_right = 424.0
+margin_bottom = 160.0
+color = Color( 0.894118, 0.819608, 0.819608, 0.705882 )
+
+[node name="CenterContainer" type="CenterContainer" parent="ScoreRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1.0
+rect_pivot_offset = Vector2( 255, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScoreRect/CenterContainer"]
+margin_left = 61.0
+margin_top = 86.0
+margin_right = 449.0
+margin_bottom = 160.0
+rect_pivot_offset = Vector2( 164, 0 )
+
+[node name="HBlvl1" type="HBoxContainer" parent="ScoreRect/CenterContainer/VBoxContainer"]
+margin_right = 388.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 164, 0 )
+alignment = 1
+
+[node name="Score" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl1"]
+margin_left = 2.0
+margin_right = 362.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "LVL1 SCORE & TIME: GOOD ENOUGH"
+
+[node name="L1SD" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl1"]
+margin_left = 366.0
+margin_right = 366.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+
+[node name="Spacer" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl1"]
+margin_left = 370.0
+margin_top = 4.0
+margin_right = 382.0
+margin_bottom = 18.0
+text = "   "
+
+[node name="L1TD" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl1"]
+margin_left = 386.0
+margin_right = 386.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+
+[node name="HBlvl2" type="HBoxContainer" parent="ScoreRect/CenterContainer/VBoxContainer"]
+margin_top = 26.0
+margin_right = 388.0
+margin_bottom = 48.0
+alignment = 1
+
+[node name="Score" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl2"]
+margin_right = 364.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "LVL2 SCORE & TIME: GOOD ENOUGH"
+
+[node name="L2SD" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl2"]
+margin_left = 368.0
+margin_right = 368.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+
+[node name="Spacer" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl2"]
+margin_left = 372.0
+margin_top = 4.0
+margin_right = 384.0
+margin_bottom = 18.0
+text = "   "
+
+[node name="L2TD" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl2"]
+margin_left = 388.0
+margin_right = 388.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+
+[node name="HBlvl3" type="HBoxContainer" parent="ScoreRect/CenterContainer/VBoxContainer"]
+margin_top = 52.0
+margin_right = 388.0
+margin_bottom = 74.0
+alignment = 1
+
+[node name="Score" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl3"]
+margin_right = 364.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "LVL3 SCORE & TIME: GOOD ENOUGH"
+
+[node name="L3SD" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl3"]
+margin_left = 368.0
+margin_right = 368.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+
+[node name="Spacer" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl3"]
+margin_left = 372.0
+margin_top = 4.0
+margin_right = 384.0
+margin_bottom = 18.0
+text = "   "
+
+[node name="L3TD" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl3"]
+margin_left = 388.0
+margin_right = 388.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+
+[connection signal="mouse_entered" from="VBoxContainer/ReturnToMainMenu" to="." method="_on_ReturnToMainMenu_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/ReturnToMainMenu" to="." method="_on_ReturnToMainMenu_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Quit Button" to="." method="_on_Quit_Button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Quit Button" to="." method="_on_Quit_Button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/Lvl1" to="." method="_on_Lvl1_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Lvl1" to="." method="_on_Lvl1_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/Lvl2" to="." method="_on_Lvl2_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Lvl2" to="." method="_on_Lvl2_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/Lvl3" to="." method="_on_Lvl3_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Lvl3" to="." method="_on_Lvl3_pressed"]

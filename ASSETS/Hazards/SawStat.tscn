@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ASSETS/Art/sawsAni.png" type="Texture" id=1]
 [ext_resource path="res://ASSETS/Hazards/SawStat.gd" type="Script" id=2]
+[ext_resource path="res://ASSETS/Audio/deathNoises/sawHitShort.mp3" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 19.5 )
@@ -98,5 +99,8 @@ autoplay = "Saw Movement"
 anims/Halt = SubResource( 4 )
 anims/RESET = SubResource( 6 )
 "anims/Saw Movement" = SubResource( 5 )
+
+[node name="SawHitGnome" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="body_entered" from="SawArea" to="." method="_on_SawArea_body_entered"]

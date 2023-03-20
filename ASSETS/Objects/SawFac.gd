@@ -19,6 +19,7 @@ func _ready():
 
 func _on_SawArea_body_entered(body):
 	if(bewl):
+		$SawHitGnome.play()
 		bewl = false
 		body.position = $"../../SpawnPoint".position
 		ani_saw.play("Halt")
