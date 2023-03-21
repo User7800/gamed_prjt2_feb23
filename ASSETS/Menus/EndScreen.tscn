@@ -156,9 +156,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -87.0
+margin_left = 58.0
 margin_top = -86.0
-margin_right = 424.0
+margin_right = 495.0
 margin_bottom = 160.0
 color = Color( 0.894118, 0.819608, 0.819608, 0.705882 )
 
@@ -167,113 +167,152 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -1.0
 rect_pivot_offset = Vector2( 255, 0 )
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScoreRect/CenterContainer"]
-margin_left = 61.0
-margin_top = 86.0
-margin_right = 449.0
-margin_bottom = 160.0
+margin_left = 76.0
+margin_top = 60.0
+margin_right = 360.0
+margin_bottom = 186.0
 rect_pivot_offset = Vector2( 164, 0 )
 
 [node name="HBlvl1" type="HBoxContainer" parent="ScoreRect/CenterContainer/VBoxContainer"]
-margin_right = 388.0
+margin_right = 284.0
 margin_bottom = 22.0
 rect_pivot_offset = Vector2( 164, 0 )
 alignment = 1
 
 [node name="Score" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl1"]
 margin_left = 2.0
-margin_right = 362.0
+margin_right = 218.0
 margin_bottom = 22.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 6 )
-text = "LVL1 SCORE & TIME: GOOD ENOUGH"
+text = "LVL1 SCORE & TIME: "
 
 [node name="L1SD" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl1"]
-margin_left = 366.0
-margin_right = 366.0
+margin_left = 222.0
+margin_right = 222.0
 margin_bottom = 22.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 6 )
 
-[node name="Spacer" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl1"]
-margin_left = 370.0
-margin_top = 4.0
-margin_right = 382.0
-margin_bottom = 18.0
-text = "   "
+[node name="SpacerP" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl1"]
+margin_left = 226.0
+margin_right = 274.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "% in "
 
 [node name="L1TD" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl1"]
-margin_left = 386.0
-margin_right = 386.0
+margin_left = 278.0
+margin_right = 278.0
 margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+
+[node name="SpacerS" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl1"]
+margin_left = 282.0
+margin_right = 282.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+
+[node name="SpacerS" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer"]
+margin_top = 26.0
+margin_right = 284.0
+margin_bottom = 48.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 6 )
 
 [node name="HBlvl2" type="HBoxContainer" parent="ScoreRect/CenterContainer/VBoxContainer"]
-margin_top = 26.0
-margin_right = 388.0
-margin_bottom = 48.0
+margin_top = 52.0
+margin_right = 284.0
+margin_bottom = 74.0
 alignment = 1
 
 [node name="Score" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl2"]
-margin_right = 364.0
+margin_right = 220.0
 margin_bottom = 22.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 6 )
-text = "LVL2 SCORE & TIME: GOOD ENOUGH"
+text = "LVL2 SCORE & TIME: "
 
 [node name="L2SD" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl2"]
-margin_left = 368.0
-margin_right = 368.0
+margin_left = 224.0
+margin_right = 224.0
 margin_bottom = 22.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 6 )
 
-[node name="Spacer" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl2"]
-margin_left = 372.0
-margin_top = 4.0
-margin_right = 384.0
-margin_bottom = 18.0
-text = "   "
+[node name="SpacerP" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl2"]
+margin_left = 228.0
+margin_right = 276.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "% in "
 
 [node name="L2TD" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl2"]
-margin_left = 388.0
-margin_right = 388.0
+margin_left = 280.0
+margin_right = 280.0
 margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+
+[node name="SpacerS" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl2"]
+margin_left = 284.0
+margin_right = 284.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+
+[node name="SpacerS2" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer"]
+margin_top = 78.0
+margin_right = 284.0
+margin_bottom = 100.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 6 )
 
 [node name="HBlvl3" type="HBoxContainer" parent="ScoreRect/CenterContainer/VBoxContainer"]
-margin_top = 52.0
-margin_right = 388.0
-margin_bottom = 74.0
+margin_top = 104.0
+margin_right = 284.0
+margin_bottom = 126.0
 alignment = 1
 
 [node name="Score" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl3"]
-margin_right = 364.0
+margin_right = 220.0
 margin_bottom = 22.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 6 )
-text = "LVL3 SCORE & TIME: GOOD ENOUGH"
+text = "LVL3 SCORE & TIME: "
 
 [node name="L3SD" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl3"]
-margin_left = 368.0
-margin_right = 368.0
+margin_left = 224.0
+margin_right = 224.0
 margin_bottom = 22.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 6 )
 
-[node name="Spacer" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl3"]
-margin_left = 372.0
-margin_top = 4.0
-margin_right = 384.0
-margin_bottom = 18.0
-text = "   "
+[node name="SpacerP" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl3"]
+margin_left = 228.0
+margin_right = 276.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "% in "
 
 [node name="L3TD" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl3"]
-margin_left = 388.0
-margin_right = 388.0
+margin_left = 280.0
+margin_right = 280.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+
+[node name="SpacerS" type="Label" parent="ScoreRect/CenterContainer/VBoxContainer/HBlvl3"]
+margin_left = 284.0
+margin_right = 284.0
 margin_bottom = 22.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 6 )

@@ -36,6 +36,4 @@ func _on_PBar_tree_exiting():
 
 
 func _on_DoorEnd_storePercent3():
-	EndScreen.L3P = String(value)
-	EndScreen._updateData()
-	#EndScreen1.L3P = String(value)
+	PlayerStats.L3P = value

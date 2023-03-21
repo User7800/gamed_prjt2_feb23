@@ -5,7 +5,7 @@ extends Label
 # var a = 2
 # var b = "text"
 var minSec = 0
-var passed = null
+var passed #= null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -24,4 +24,4 @@ func _process(delta):
 
 func _on_DoorFac_storeTime2():
 	if(passed != null):
-		EndScreen.LevelTwoTime = passed
+		PlayerStats.LevelTwoTime = passed

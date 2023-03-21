@@ -24,6 +24,4 @@ func _process(delta):
 
 func _on_DoorEnd_storeTime3():
 	if(passed != null):
-		EndScreen.LevelThreeTime = String(passed)
-		EndScreen._updateData()
-		#EndScreen1.L3TD.text = String(passed)
+		PlayerStats.LevelThreeTime = passed

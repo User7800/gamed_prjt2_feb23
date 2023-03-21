@@ -35,4 +35,4 @@ func _on_PBar_tree_exiting():
 
 
 func _on_Door_storePercent():
-	EndScreen.L1P = String(value)
+	PlayerStats.L1P = value

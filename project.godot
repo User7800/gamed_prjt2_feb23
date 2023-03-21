@@ -17,7 +17,7 @@ config/icon="res://ASSETS/Art/gnome.png"
 
 [autoload]
 
-EndScreen="*res://ASSETS/Menus/EndScreen.gd"
+PlayerStats="*res://Data/PlayerStats.gd"
 
 [display]
 

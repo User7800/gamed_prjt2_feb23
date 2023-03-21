@@ -36,4 +36,4 @@ func _on_PBar_tree_exiting():
 
 
 func _on_DoorFac_storePercent2():
-	EndScreen.L2P = value
+	PlayerStats.L2P = value

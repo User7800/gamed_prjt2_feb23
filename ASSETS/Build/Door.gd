@@ -2,7 +2,7 @@ extends Node2D
 
 
 # Declare member variables here. Examples:
-# var a = 2
+#var a = 0
 # var b = "text"
 signal storeTime
 signal storePercent
@@ -13,6 +13,8 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	emit_signal("storeTime")
 	emit_signal("storePercent")
+	#PlayerStats.printer()
+	
 	$"../TransiLayer".visible = true
 	$"../TransiLayer/Transitions/AnimationPlayer".play("Transition")
 	yield(get_tree().create_timer(1), "timeout")

@@ -20,6 +20,7 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	emit_signal("storePercent2")
 	emit_signal("storeTime2")
+	#PlayerStats.printer()
 	$"../TransiLayer".visible = true
 	$"../TransiLayer/Transitions/AnimationPlayer".play("Transition")
 	yield(get_tree().create_timer(1), "timeout")

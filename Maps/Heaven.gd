@@ -9,7 +9,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#EndScreen1.visible = false
-	EndScreen.visible = false
+	#EndScreen.visible = false
 	$TransiLayer.visible = true
 	$TransiLayer/Transitions/AnimationPlayer.play("TransitionBackward")
 	yield(get_tree().create_timer(1), "timeout")

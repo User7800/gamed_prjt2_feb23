@@ -4,37 +4,38 @@ extends Control
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-onready var LevelOneTime = null
-onready var LevelTwoTime = null
-onready var LevelThreeTime = null
-onready var L1P = null
-onready var L2P = null
-onready var L3P = null
+"""
+onready var LevelOneTime = ""
+onready var LevelTwoTime = ""
+onready var LevelThreeTime = ""
+onready var L1P = ""
+onready var L2P = ""
+onready var L3P = ""
+"""
+#onready var testerer = "carrot"
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#_updateData()
-	pass
+	_assignData()
+	$TransiLayer.visible = true
+	$TransiLayer/Transitions/AnimationPlayer.play("TransitionBackward")
+	yield(get_tree().create_timer(1), "timeout")
+	$TransiLayer.visible = false
+
+	#pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-func _updateData():
-	pass
-	"""
-	if(LevelOneTime != null):
-		$ScoreRect/CenterContainer/VBoxContainer/HBlvl1/L1TD.text = LevelOneTime
-	if(LevelTwoTime != null):
-		$ScoreRect/CenterContainer/VBoxContainer/HBlvl2/L2TD.text = LevelTwoTime
-	if(LevelThreeTime != null):
-		$ScoreRect/CenterContainer/VBoxContainer/HBlvl3/L3TD.text = LevelThreeTime
-	if(L1P != null):
-		$ScoreRect/CenterContainer/VBoxContainer/HBlvl1/L1SD.text = L1P
-	if(L2P != null):
-		$ScoreRect/CenterContainer/VBoxContainer/HBlvl2/L2SD.text = L2P
-	if(L3P!=null):
-		$ScoreRect/CenterContainer/VBoxContainer/HBlvl3/L3SD.text = L3P
-	"""
+
+func _assignData():
+	#pass
+	$ScoreRect/CenterContainer/VBoxContainer/HBlvl1/L1TD.text = String(PlayerStats.LevelOneTime)
+	$ScoreRect/CenterContainer/VBoxContainer/HBlvl2/L2TD.text = String(PlayerStats.LevelTwoTime)
+	$ScoreRect/CenterContainer/VBoxContainer/HBlvl3/L3TD.text = String(PlayerStats.LevelThreeTime)
+	$ScoreRect/CenterContainer/VBoxContainer/HBlvl1/L1SD.text = String(PlayerStats.L1P)
+	$ScoreRect/CenterContainer/VBoxContainer/HBlvl2/L2SD.text = String(PlayerStats.L2P)
+	$ScoreRect/CenterContainer/VBoxContainer/HBlvl3/L3SD.text = String(PlayerStats.L3P)
 
 func _on_ReturnToMainMenu_pressed():
 	$TransiLayer.visible = true

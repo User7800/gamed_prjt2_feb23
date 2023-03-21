@@ -10,7 +10,9 @@ func _on_SawArea_body_entered(body):
 	#ani_saw.play("stopSaw")
 	#ani_saw2.travel("stopSaw")
 	#queue_free()
-	$SawHitGnome.play()
+	if(count == 0):
+		$SawHitGnome.play()
+		count += 1
 	ani_saw.play("Halt")
 	#$SawAnimationPlayer.f
 
